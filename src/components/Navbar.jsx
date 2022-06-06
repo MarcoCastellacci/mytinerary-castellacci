@@ -17,7 +17,7 @@ import '../styles/styles.css';
 
 
 const pages = ['Home', 'Cities', 'Contact'];
-const settings = ['Profile', 'Account', 'Your Tips', 'Logout'];
+const settings = ['Profile', 'Account', 'Your Trips', 'Logout'];
 
 const ResponsiveAppBar = () => {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
@@ -53,10 +53,11 @@ const ResponsiveAppBar = () => {
               letterSpacing: '.3rem',
               color: 'inherit',
               textDecoration: 'none',
+              width: '100%',
+              marginRight: '0',
             }}
           >
           <img src={Logo} alt="Logo" className="logo"/>
-
           </Box>
 
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
@@ -101,21 +102,20 @@ const ResponsiveAppBar = () => {
             sx={{
               mr: 2,
               display: { xs: 'flex', md: 'none' },
-              
+              flexGrow: 1,
               fontFamily: 'monospace',
               fontWeight: 700,
               letterSpacing: '.3rem',
               color: 'inherit',
               textDecoration: 'none',
+              width: '100%',
+              zIndex: '0', 
+              justifyContent: 'center',             
             }}
           >
-            <img src={Logo} alt="logo" className="logo" sx={{
-            margin: 'auto',
-            alignSelf: 'center',
-            width: '10%',
-  }}/>
+            <img src={Logo} alt="logo" className="logo" />
           </Box>
-          <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
+          <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' }, }}>
             {pages.map((page) => (
               <Button
                 key={page}
@@ -127,7 +127,7 @@ const ResponsiveAppBar = () => {
             ))}
           </Box>
 
-          <Box sx={{ flexGrow: 0 }}>
+          <Box sx={{ flexGrow: 0, justifyContent: 'center' }}>
             <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
                 <Avatar src={AccountCircleIcon} />

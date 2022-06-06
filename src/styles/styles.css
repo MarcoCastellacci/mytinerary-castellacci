@@ -47,6 +47,10 @@ body {
 .logo {
 width: 30%;
 height: auto;
-margin-right: 0;
-padding-right: 0;
+}
+
+@media (max-width: 580px) {
+  .logo {
+    width: 60%;
+  }
 }

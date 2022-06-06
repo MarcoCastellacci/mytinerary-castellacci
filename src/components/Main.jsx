@@ -1,13 +1,14 @@
 import React from 'react';
-import Carrousel from '../components/Carrousel';
+// import Carrousel from '../components/Carrousel';
+import CallToAction from '../components/CallToAction';
 
 
 function Main() {
     return (
     <>        
-        <div>
-            <h1>Main</h1>
-            <Carrousel />
+        <div className="main">
+            <CallToAction/>
+            {/* <Carrousel /> */}
         </div>
     </>
 )
