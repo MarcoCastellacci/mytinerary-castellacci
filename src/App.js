@@ -7,18 +7,19 @@ import Carrousel from './components/Carrousel';
 import CallToAction from './components/CallToAction';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
-import axios from "axios";
+// import axios from "axios";
 
 function App() {
 
 const [Cities,setCities] = useState()
 
 useEffect(() => {
-axios.get("../src/data/cities.json")
-.then(response => setCities(response.data.results))
+fetch("http://localhost:3000/data/cities.json")
+.then(response =>response.json())
+.then(data => console.log(data))
+.catch(error => console.error(error))
 },[])
 
-console.log(Cities)
   return (
     <>
       <Navbar />

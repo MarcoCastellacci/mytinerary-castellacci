@@ -26,10 +26,10 @@ console.log(props.Cities);
       >
         {props.Cities && props.Cities.map(city => 
         <SwiperSlide key={city.id}>
-          <img style={{height:'100%', backgroundColor: 'black'}}   src={city.image} alt="foto" />
+          <img style={{height:'100%', backgroundColor: 'black'}} src={city.image} alt="foto" />
           <Typography variant="h6" style={{color: 'black'}} sx={{alignSelf:'flex-end',
           zIndex: '1',
-          }}>{city.name}</Typography>
+          }}>{city.nombre}</Typography>
         </SwiperSlide>
         )}
       </Swiper>
