@@ -92,7 +92,7 @@ const ResponsiveAppBar = () => {
             >
               {pages.map((page) => (
                 <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">{page}</Typography>
+                  <Typography  textAlign="center">{page}</Typography>
                 </MenuItem>
               ))}
             </Menu>
@@ -115,7 +115,7 @@ const ResponsiveAppBar = () => {
           >
             <img src={Logo} alt="logo" className="logo" />
           </Box>
-          <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' }, }}>
+          <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' },}}>
             {pages.map((page) => (
               <Button
                 key={page}

@@ -3,8 +3,9 @@ import { styled } from '@mui/material/styles';
 import Button from '@mui/material/Button';
 import Stack from '@mui/material/Stack';
 import { lightBlue } from '@mui/material/colors';
-import Fondo from '../img/fondo.gif';
+import Fondo from '../img/slogan.gif';
 import Box from '@mui/material/Box';
+
 
 
 const ColorButton = styled(Button)(({ theme }) => ({
@@ -24,22 +25,23 @@ function CallToAction() {
             alignItems: 'bottom',
             backgroundImage: 'url(' + Fondo + ')',
             backgroundRepeat: 'no-repeat',
-            backgroundSize: 'cover',
+            backgroundSize: 'contain',
             backgroundPosition: 'center',
-            width: '50%',
-            height: '20vh',
-            borderRadius: '90px',
+            width: '100%',
+            height: '50vh',
             margin: '5rem auto',
-            marginTop: '-20rem',
-}} >
-        <Stack spacing={1} direction="row" sx={{
+            marginTop: '-5rem',
+}} >    
+        
+        <Stack spacing={1} direction="row" className="boton-cities" sx={{
             justifyContent: 'center',
             borderRadius: '50px',
             margin: '0 auto',
             marginBottom: '.5rem',
+            marginTop: '1rem',
 }}>
         <ColorButton variant="contained">All Cities</ColorButton>  
-        </Stack>     
+        </Stack>    
         </Box>
         </>
 );
