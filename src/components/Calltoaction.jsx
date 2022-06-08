@@ -1,20 +1,21 @@
 import React from 'react';
-import { styled } from '@mui/material/styles';
-import Button from '@mui/material/Button';
+// import { styled } from '@mui/material/styles';
+// import Button from '@mui/material/Button';
 import Stack from '@mui/material/Stack';
-import { lightBlue } from '@mui/material/colors';
+// import { lightBlue } from '@mui/material/colors';
 import Fondo from '../img/slogan.gif';
 import Box from '@mui/material/Box';
+import {Link as RouterLink} from "react-router-dom";
 
 
 
-const ColorButton = styled(Button)(({ theme }) => ({
-  color: theme.palette.getContrastText(lightBlue[500]),
-  backgroundColor: lightBlue[500],
-  '&:hover': {
-    backgroundColor: lightBlue[100],
-  },
-}));
+// const ColorButton = styled(Button)(({ theme }) => ({
+//   color: theme.palette.getContrastText(lightBlue[500]),
+//   backgroundColor: lightBlue[500],
+//   '&:hover': {
+//     backgroundColor: lightBlue[100],
+//   },
+// }));
 function CallToAction() {
     return (
         <>
@@ -40,7 +41,7 @@ function CallToAction() {
             marginBottom: '.5rem',
             marginTop: '1rem',
 }}>
-        <ColorButton variant="contained">All Cities</ColorButton>  
+        <RouterLink to={'/cities'}><span className='btn-donate'>  All Cities  </span></RouterLink>  
         </Stack>    
         </Box>
         </>

@@ -1,36 +1,35 @@
-import React, {useEffect, useState} from 'react';
+import React from 'react';
+import { Routes, Route } from 'react-router-dom';
 
-import './styles/App.css';
+import '../src/styles/App.css';
 import "swiper/css/bundle";
 import "../src/styles/styles.css";
-import Carrousel from './components/Carrousel';
-import CallToAction from './components/CallToAction';
+
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
-// import axios from "axios";
+
+import Cities from './pages/Cities';
+import Contact from './pages/Contact';
+import LogIn from './pages/LogIn';
+import SignUp from './pages/SignIn';
+import NonPage from './pages/NonPage';
+import Index from './pages/Index';
+
 
 function App() {
-
-const [Cities,setCities] = useState()
-
-useEffect(() => {
-fetch("http://localhost:3000/data/cities.json")
-.then(response =>response.json())
-.then(data => console.log(data))
-.catch(error => console.error(error))
-},[])
 
   return (
     <>
       <Navbar />
-      <div className="main">
-            <div className="call">
-                <CallToAction/>
-            </div>
-            <div className="carrousel">
-                <Carrousel Cities={Cities}/>
-            </div>
-      </div>
+      <Routes>
+        <Route path="/cities" element={<Cities/>} />
+        <Route path="/contact" element={<Contact/>} />
+        <Route path="/login" element={<LogIn/>} />
+        <Route path="/signup" element={<SignUp/>} />  
+        <Route path="/" element={<Index/>} />
+        <Route path="/index" element={<Index/>} />
+        <Route path="*" element={<NonPage/>} />
+      </Routes>
       <Footer />
     </>
   )
