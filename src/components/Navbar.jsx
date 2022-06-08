@@ -125,13 +125,15 @@ const ResponsiveAppBar = () => {
 
           <Box sx={{ flexGrow: 0, justifyContent: 'center' }}>
             <Tooltip title="Open settings">
-              <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
+              <IconButton onClick={handleOpenUserMenu} sx={{ p: 0, }}>
                 <AccountCircleIcon sx={{
-                    width: '2rem'}} />
+                    width: '2rem',
+                    }} />
               </IconButton>
             </Tooltip>
             <Menu
-              sx={{ mt: '45px' }}
+              sx={{ mt: '45px',
+                 }}
               id="menu-appbar"
               anchorEl={anchorElUser}
               anchorOrigin={{
@@ -148,8 +150,8 @@ const ResponsiveAppBar = () => {
             >
               {settings.map((setting, index) => (
                 <RouterLink key={index} to={setting.to} onClick={handleCloseUserMenu}>
-                <MenuItem>
-                  <Typography sx={{textDecoration:'none',
+                <MenuItem sx={{textDecoration:'none',}}>
+                  <Typography sx={{
                                   color: 'black'}} textAlign="center">{setting.name}</Typography>
                 </MenuItem>
                 </RouterLink>

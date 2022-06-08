@@ -1,3 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Joan&display=swap');
+
+
+.carrousel-title{
+  font-family: 'Joan', serif; 
+  font-weight: bold;
+}
 *{
 margin : 0;
 padding: 0;
@@ -13,6 +20,8 @@ body {
   height: 100%
 
 }
+a {
+text-decoration: none !important;}
 
 body {
   background: #eee;
@@ -51,6 +60,14 @@ body {
 .gif-cities {
     width: 50%;
     height: 50vh;
+}
+
+.title-cities {
+    font-family: 'Joan', serif;
+    font-size: 4rem;
+    font-weight: bold;
+    /* color: #42a5f5; */
+    margin-bottom: 2rem;
 }
 
 .swiper {
@@ -115,8 +132,13 @@ height: auto;
 .pagina-vacia img {
   width: 30%;
 }
-.ciudades {
-  width: 100vw !important;
+.cities {
+  display: flex !important;
+  flex-direction: column !important;
+  flex-grow: 1 !important;
+}
+.btn-cities a {
+  text-decoration: none !important;
 }
 
 /* From uiverse.io by @Allyhere */
@@ -192,6 +214,11 @@ border-radius: 50px;
       margin: 0 auto;
       margin-top: -5rem;
     }
+.cities {
+  display: flex !important;
+  flex-direction: column !important;
+  flex-grow: 1 !important;
+}
 }
 
 @media (max-width: 780px) {
@@ -199,7 +226,7 @@ border-radius: 50px;
         width: 100%;
         height: auto;
     }
-    .boton-cities {
+    .btn-cities {
         width: 100%;
         height: auto;
         margin-top: -15rem !important;

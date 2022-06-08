@@ -15,15 +15,16 @@ console.log(props.Cities);
   return (
     <>
       <Box sx={{justifyContent: 'center'}}>
-        <Typography sx={{justifySelf:'center', margin: '0 .5rem', fontSize: '5rem', fontFamily: 'serif', color: '#42a5f5'}}>
+        <Typography sx={{justifySelf:'center', margin: '0 .5rem', fontSize: '5rem', fontFamily: 'serif', color: '#42a5f5'}} className="carrousel-title" >
           Popular Cities
         </Typography>
       </Box>
       <Swiper
         spaceBetween={30}
         slidesPerView={2}
+        slidesPerGroup={2}
         grid={{
-          rows: 2
+          rows: 2,
         }}
         autoplay={{
           delay: 2500,
@@ -32,40 +33,13 @@ console.log(props.Cities);
         pagination={{
           clickable: true
         }}
-        breakpoints={{
-          580: {
-            slidesPerView: 2,
-            spaceBetween: 10, 
-            grid:{
-              rows: 4
-            },
-          },
-          640: {
-            slidesPerView: 2,
-            spaceBetween: 10,
-            grid:{
-              rows: 4
-            },
-          },
-          780: {
-            slidesPerView: 2,
-            spaceBetween: 20,
-            grid:{
-              rows: 4
-            },
-          },
-          1080: {
-            slidesPerView: 2,
-            spaceBetween: 30,
-          },
-        }}
         navigation={true}
         modules={[Autoplay, Grid, Pagination,  Navigation]}
         className="mySwiper"
       >
         {props.cities && props.cities.cities.map(city => 
-        <SwiperSlide key={city.id}>
-          <img style={{height:'100%', width: '50vw'}} src={city.image} alt="foto" className="ciudades"/>
+        <SwiperSlide key={city.id} className="cities">
+          <img style={{height:'90%', width: '100%'}} src={city.image} alt="foto"/>
           <Typography variant="h6" style={{color: 'white', width: '100%'}} sx={{alignSelf:'flex-end', margin: '0 .5rem', }}>{city.nombre}</Typography>
         </SwiperSlide>
         )}

@@ -28,13 +28,13 @@ function CallToAction() {
             backgroundRepeat: 'no-repeat',
             backgroundSize: 'contain',
             backgroundPosition: 'center',
-            width: '100%',
+            width: '90vw',
             height: '50vh',
             margin: '5rem auto',
             marginTop: '-5rem',
 }} >    
         
-        <Stack spacing={1} direction="row" className="boton-cities" sx={{
+        <Stack spacing={1} direction="row" className="btn-cities" sx={{
             justifyContent: 'center',
             borderRadius: '50px',
             margin: '0 auto',
