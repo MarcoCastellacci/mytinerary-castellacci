@@ -1,24 +1,25 @@
 import React from 'react';
-// import { styled } from '@mui/material/styles';
-// import Button from '@mui/material/Button';
 import Stack from '@mui/material/Stack';
-// import { lightBlue } from '@mui/material/colors';
 import Fondo from '../img/slogan.gif';
 import Box from '@mui/material/Box';
 import {Link as RouterLink} from "react-router-dom";
+import Title from '../img/mytinerary.png';
 
 
-
-// const ColorButton = styled(Button)(({ theme }) => ({
-//   color: theme.palette.getContrastText(lightBlue[500]),
-//   backgroundColor: lightBlue[500],
-//   '&:hover': {
-//     backgroundColor: lightBlue[100],
-//   },
-// }));
 function CallToAction() {
     return (
-        <>
+        <>  
+        <Box sx={{display: 'flex',
+            flexDirection: 'column',
+            justifyContent: 'flex-end',
+            alignItems: 'bottom',
+            width: '90vw',
+            height: '20vh',
+            margin: '5rem auto',
+            marginTop: '1rem',
+             }}>
+           <img src={Title} alt="title" className="title-app"/>
+        </Box>
         <Box sx={{
             display: 'flex',
             flexDirection: 'column',
@@ -31,7 +32,7 @@ function CallToAction() {
             width: '90vw',
             height: '50vh',
             margin: '5rem auto',
-            marginTop: '-5rem',
+            marginTop: '2rem',
 }} >    
         
         <Stack spacing={1} direction="row" className="btn-cities" sx={{

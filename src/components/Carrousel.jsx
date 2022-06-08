@@ -15,8 +15,8 @@ console.log(props.Cities);
   return (
     <>
       <Box sx={{justifyContent: 'center'}}>
-        <Typography sx={{justifySelf:'center', margin: '0 .5rem', fontSize: '5rem', fontFamily: 'serif', color: '#42a5f5'}} className="carrousel-title" >
-          Popular Cities
+        <Typography sx={{justifySelf:'center', margin: '0 .5rem', fontSize: '5rem', color: '#42a5f5'}} className="carrousel-title" >
+          Popular MyTinerary
         </Typography>
       </Box>
       <Swiper

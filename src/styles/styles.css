@@ -1,10 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Joan&display=swap');
 
+/* Generales */
 
-.carrousel-title{
-  font-family: 'Joan', serif; 
-  font-weight: bold;
-}
 *{
 margin : 0;
 padding: 0;
@@ -33,6 +30,8 @@ body {
 }
 .style {
   padding: 0 !important;}
+
+/* Contenedores Generales */
 
 .main {
     background-image: url("https://jetnews.com.mx/wp-content/uploads/2017/11/10-Common-Travel-Mistakes-You-Can-Avoid.jpg");
@@ -66,10 +65,23 @@ body {
     font-family: 'Joan', serif;
     font-size: 4rem;
     font-weight: bold;
-    /* color: #42a5f5; */
+    text-align: center;
     margin-bottom: 2rem;
 }
+.title-app{
+    border-radius: 100px !important;
+}
 
+.carrousel-title{
+  background-color: rgba(0, 0, 0, 0.212);
+  font-family: 'Joan', serif !important;; 
+  font-weight: bold !important;  
+  width: 100vw;
+  text-align: center;
+}
+
+
+/* Carrousel */
 .swiper {
   width: 90vw;
   height: 30rem;
@@ -97,6 +109,12 @@ body {
   align-items: center;
 }
 
+.cities {
+  display: flex !important;
+  flex-direction: column !important;
+  flex-grow: 1 !important;
+}
+/* Navbar y Footer */
 .logo {
 width: 30%;
 height: auto;
@@ -111,13 +129,14 @@ height: auto;
   text-align: center;
   z-index: 1;}
 
-.logos-redes {
+.logos {
     width: 3rem;
     justify-content: center;
     align-items: center;
     margin: auto;
 }
 
+/* Call To Action */
 .slogan {
   background-color: rgba(69, 215, 255, 0.321);
   margin-top: -5rem;
@@ -126,21 +145,13 @@ height: auto;
   border-radius: 100px;
 }
 
-.pagina-vacia {
+.non-page {
   height: 100vh;
 }
-.pagina-vacia img {
+.non-page img {
   width: 30%;
 }
-.cities {
-  display: flex !important;
-  flex-direction: column !important;
-  flex-grow: 1 !important;
-}
-.btn-cities a {
-  text-decoration: none !important;
-}
-
+/* Componenetes Botones Externos */
 /* From uiverse.io by @Allyhere */
 .btn-donate {
   --clr-font-main: hsla(0 0% 20% / 100);
@@ -200,13 +211,13 @@ border-radius: 50px;
  transition: 0.1s;
 }
 
+/* Media Queries */
+
 @media (prefers-reduced-motion: reduce) {
   .btn-donate {
     transition: linear;
   }
 }
-
-
 @media (max-width: 1080px) {
 .slogan {
       width: 80%;

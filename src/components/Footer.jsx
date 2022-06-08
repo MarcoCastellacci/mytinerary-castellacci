@@ -8,14 +8,15 @@ import '../styles/styles.css';
 import Typography from '@mui/material/Typography';
 import Faceboock from '../img/facebook.png';
 import Instagram from '../img/instagram.png';
-import Whatsapp from '../img/whatsapp.png';
 import {Link as RouterLink} from "react-router-dom";import MenuIcon from '@mui/icons-material/Menu';
 import Menu from '@mui/material/Menu';
 import IconButton from '@mui/material/IconButton';
 import MenuItem from '@mui/material/MenuItem';
+import Button from '@mui/material/Button';
+import Link from '@mui/material/Link';
  
 const pages = [{to: '/index', name: 'Home'}, {to:'/cities', name: 'Cities'}, {to:'/contact', name: 'Contact'}];
-const settings = [{to: '/login', name: 'Log In'},{to:'/signup', name: 'Sign Up'}];
+
 
 function Footer(){
 
@@ -42,14 +43,21 @@ const handleOpenNavMenu = (event) => {
               letterSpacing: '.3rem',
               color: 'inherit',
               textDecoration: 'none',
-              width: '100vw',
-              marginRight: '0',
+              width: '70vw',
+              margin: '0.5rem',
             }}
           >
             <img src={Logo} alt="Logo" className="logo-footer"/>
-            <img src={Faceboock} className="logos-redes" alt="logo-facebook" />
-            <img src={Instagram} className="logos-redes" alt="logo-instagram" />
-            <img src={Whatsapp} className="logos-redes" alt="logo-whatsapp" />
+          <Link href="https://www.facebook.com/" >
+          <Button> 
+            <img src={Faceboock} className="logos" alt="logo-facebook" />
+          </Button>
+            </Link>
+            <Link href="https://www.instagram.com/" >
+          <Button>
+            <img src={Instagram} className="logos" alt="logo-instagram" />
+          </Button>
+            </Link>
           </Box>          
           <Box
             sx={{
@@ -67,9 +75,17 @@ const handleOpenNavMenu = (event) => {
             }}
           >
             <img src={Logo} alt="logo" className="logo" />
-            <img src={Faceboock} className="logos-redes" alt="logo-facebook" />
-            <img src={Instagram} className="logos-redes" alt="logo-instagram" />
-            <img src={Whatsapp} className="logos-redes" alt="logo-whatsapp" />
+            
+           <Link href="https://www.facebook.com/" >
+          <Button> 
+            <img src={Faceboock} className="logos" alt="logo-facebook" />
+          </Button>
+            </Link>
+            <Link href="https://www.instagram.com/" >
+          <Button>
+            <img src={Instagram} className="logos" alt="logo-instagram" />
+          </Button>
+            </Link>
           </Box>
 <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
             <IconButton
