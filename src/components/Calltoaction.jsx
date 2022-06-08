@@ -17,8 +17,8 @@ function CallToAction() {
             height: '20vh',
             margin: '5rem auto',
             marginTop: '1rem',
-             }}>
-           <img src={Title} alt="title" className="title-app"/>
+            }}>
+        <img src={Title} alt="title" className="title-app"/>
         </Box>
         <Box sx={{
             display: 'flex',
