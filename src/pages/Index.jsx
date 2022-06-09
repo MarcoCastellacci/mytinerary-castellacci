@@ -15,6 +15,7 @@ fetch("./data/cities.json")
 .catch(error => console.error(error))
 },[])
 
+
 return (
 <>
 <div className="main">

@@ -47,7 +47,7 @@ body {
 }
 
 .main-cities{
-    height: 100vh;
+    min-height: 100vh;
   }
 
 .call{
@@ -72,14 +72,7 @@ body {
     border-radius: 100px !important;
 }
 
-.carrousel-title{
-  background-color: rgba(0, 0, 0, 0.212);
-  font-family: 'Joan', serif !important;; 
-  font-weight: bold !important;  
-  width: 100vw;
-  text-align: center;
-  text-shadow: 0px 0px 5px black;
-}
+
 
 
 /* Carrousel */
@@ -90,7 +83,14 @@ body {
   margin-right: auto;
   margin-bottom: 5rem;
 }
-
+.carrousel-title{
+  background-color: rgba(0, 0, 0, 0.212);
+  font-family: 'Joan', serif !important;; 
+  font-weight: bold !important;  
+  width: 100vw;
+  text-align: center;
+  text-shadow: 0px 0px 5px black;
+}
 .swiper-slide {
   text-align: center;
   font-size: 18px;
@@ -146,11 +146,18 @@ height: auto;
   border-radius: 100px;
 }
 
+/* Non Page */
+
 .non-page {
   height: 100vh;
 }
 .non-page img {
   width: 30%;
+}
+
+/* Pagina de Ciudades */
+.image-list-item img{
+  height: 50vh !important;
 }
 /* Componenetes Botones Externos */
 /* From uiverse.io by @Allyhere */

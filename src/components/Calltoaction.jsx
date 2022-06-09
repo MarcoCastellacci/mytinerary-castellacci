@@ -42,7 +42,7 @@ function CallToAction() {
             marginBottom: '.5rem',
             marginTop: '1rem',
 }}>
-        <RouterLink to={'/cities'}><span className='btn-donate'>  All Cities  </span></RouterLink>  
+        <RouterLink to={'/cities'} ><span className='btn-donate'>  All Cities  </span></RouterLink>  
         </Stack>    
         </Box>
         </>

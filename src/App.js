@@ -14,6 +14,7 @@ import LogIn from './pages/LogIn';
 import SignUp from './pages/SignIn';
 import NonPage from './pages/NonPage';
 import Index from './pages/Index';
+import Details from './pages/Details';
 
 
 function App() {
@@ -23,6 +24,7 @@ function App() {
       <Navbar />
       <Routes>
         <Route path="/cities" element={<Cities/>} />
+        <Route path="/cities/city/:id" element={<Details/>} />
         <Route path="/contact" element={<Contact/>} />
         <Route path="/login" element={<LogIn/>} />
         <Route path="/signup" element={<SignUp/>} />  
