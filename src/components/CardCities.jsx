@@ -5,11 +5,12 @@ import ImageListItemBar from '@mui/material/ImageListItemBar';
 import IconButton from '@mui/material/IconButton';
 import InfoIcon from '@mui/icons-material/Info';
 import {Link as RouterLink} from "react-router-dom";
+import Filter from '../components/Filter';
 
 function CardCities(props) {
 return (
 <>
-
+    <Filter cities={props} />
   <ImageList sx={{ width: '90vw', margin: '2rem', }}>
             {props.cities && props.cities.cities.map(city =>
         <ImageListItem key={city.image} className="image-list-item">

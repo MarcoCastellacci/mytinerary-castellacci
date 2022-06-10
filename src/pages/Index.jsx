@@ -6,16 +6,15 @@ import '../styles/styles.css';
 
 function Index (){
 
+
 const [cities,setCities] = useState()
 
 useEffect(() => {
-fetch("./data/cities.json")
+fetch("../data/cities.json")
 .then(response =>response.json())
 .then(data => setCities(data))
 .catch(error => console.error(error))
 },[])
-
-
 return (
 <>
 <div className="main">
@@ -23,7 +22,7 @@ return (
         <CallToAction/>
     </div>
     <div className="carrousel">
-        <Carrousel cities={cities}/>
+        <Carrousel cities={cities} />
     </div>
 </div>
 </>

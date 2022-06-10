@@ -39,7 +39,7 @@ console.log(props.Cities);
       >
         {props.cities && props.cities.cities.map(city => 
         <SwiperSlide key={city.id} className="cities">
-          <img style={{height:'90%', width: '100%'}} src={city.image} alt="foto"/>
+          <img style={{height:'90%', width: '100%', objectFit: 'cover'}} src={city.image} alt="foto"/>
           <Typography variant="h6" style={{color: 'white', width: '100%'}} sx={{alignSelf:'flex-end', margin: '0 .5rem', }}>{city.name}</Typography>
         </SwiperSlide>
         )}
