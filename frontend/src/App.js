@@ -1,4 +1,4 @@
-import React from 'react';
+import React , {useEffect} from 'react';
 import { Routes, Route } from 'react-router-dom';
 
 
@@ -19,6 +19,12 @@ import Details from './pages/Details';
 
 
 function App() {
+
+useEffect(() => {
+    setTimeout(() => {
+    window.scrollTo(0, 0);
+    }, 500)
+}, []);
 
   return (
     <>
