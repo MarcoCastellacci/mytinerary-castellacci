@@ -5,6 +5,7 @@ import BtnBack from '../components/BtnBack';
 import '../styles/styles.css';
 
 
+
 function Details() {
 const {id} = useParams();
 
@@ -30,6 +31,7 @@ fetch("https://62a395985bd3609cee6cceb8.mockapi.io/api/cities" )
                 <p>{city.info}</p>
             </div>
             <BtnBack />
+
         </div>
         )}
     </>

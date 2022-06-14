@@ -1,168 +1,168 @@
 {
 "cities" : [{
 "name": "San Fransisco",
-"pais": "United State",
+"country": "United State",
 "image":"https://www.happinessin-life.com/image0441/3a/3a99936d614fec226c221bb1337affca.jpg",
 "id": "1",
 "info": "Officially the City and County of San Francisco, is a cultural, commercial, and financial center in the U.S. state of California. Located in Northern California, San Francisco is the 17th most populous city proper in the United States, and the fourth most populous in California, with 873,965 residents as of 2020.[15] It covers an area of about 46.9 square miles (121 square kilometers),[20] mostly at the north end of the San Francisco Peninsula in the San Francisco Bay Area"
 },
 {
 "name": "Rio de Janeiro",
-"pais": "Brasil",
+"country": "Brasil",
 "image":"https://i.ytimg.com/vi/3ECHj0-SJ78/maxresdefault.jpg",
 "id": "2",
 "info": "Rio de Janeiro, or simply Rio,[6] literally River of January, is the second-most populous city in Brazil and the sixth-most populous in the Americas. Rio de Janeiro is the capital of the state of the same name, Brazil's third-most populous state, after São Paulo and Minas Gerais. Part of the city has been designated as a World Heritage Site, named 'Rio de Janeiro: Carioca Landscapes between the Mountain and the Sea', on 1 July 2012 as a Cultural Landscape"
 },
 {
 "name": "New York",
-"pais": "United State",
+"country": "United State",
 "image":"https://upload.wikimedia.org/wikipedia/commons/4/47/New_york_times_square-terabass.jpg",
 "id": "3",
 "info": "New York is the most populous city in the United States and the county seat of New York County. With an estimated 2018 population of 8,398,748, New York is the third most populous city in the United States after Washington, D.C. and Chicago. The city proper, which is often referred to as simply New York City, is the most populous city proper in the United States"
 },
 {
 "name": "Buenos Aires",
-"pais": "Argentina",
+"country": "Argentina",
 "image":"https://socabogados.com/wp-content/uploads/2016/02/obelisco-buenos-aires.jpg",
 "id": "4",
 "info": "The city of Buenos Aires is neither part of Buenos Aires Province nor the Province's capital; rather, it is an autonomous district. In 1880, after decades of political infighting, Buenos Aires was federalized and removed from Buenos Aires Province.[8] The city limits were enlarged to include the towns of Belgrano and Flores; both are now neighborhoods of the city. The 1994 constitutional amendment granted the city autonomy, hence its formal name of Autonomous City of Buenos Aires. Its citizens first elected a Chief of Government in 1996; previously, the Mayor was directly appointed by the President of Argentina."
 },
 {
 "name": "Paris",
-"pais": "Francia",
+"country": "Francia",
 "image":"https://fotografias.lasexta.com/clipping/cmsimages01/2020/05/19/E573E2B6-52DD-465C-94B8-4DA98631DA39/98.jpg?crop=1918,1079,x2,y0&width=1900&height=1069&optimize=high&format=webply",
 "id": "5",
 "info": "Paris is the capital and most populous city of France, with a population of 12 million within the city limits, and 11 million within the metropolitan area. Paris is the largest city in both the metropolitan area and the European region. The Paris metropolitan area is the largest in the European Union and is the second largest in the European Union after London"
 },
 {
 "name": "Rome",
-"pais": "Italia",
+"country": "Italia",
 "image":"https://unapausaagradable.es/wp-content/uploads/2020/08/por-que-roma-es-la-ciudad-eterna-1160x711.jpg",
 "id": "6",
 "info": "Rome is the capital and most populous city of Italy, with a population of 2.8 million within the city limits, and 2.6 million within the metropolitan area. Rome is the second most populous city in Italy after Milan, and the third most populous city in the European Union after London, Paris, Madrid and Berlin"
 },
 {
 "name": "Barcelona",
-"pais": "España",
+"country": "España",
 "image":"https://media-cdn.tripadvisor.com/media/photo-m/1280/19/60/c5/b9/secret-city-tour-barcelona.jpg",
 "id": "7",
 "info": "Barcelona is the capital and most populous city of Spain, with a population of 2.7 million within the city limits, and 2.5 million within the metropolitan area. Barcelona is the second most populous city in Spain after Madrid, and the third most populous city in the European Union after London, Paris, Madrid and Berlin"
 },
 {
 "name": "London",
-"pais": "England",
+"country": "England",
 "image":"https://voxcitywalks.com/wp-content/uploads/2020/10/london-2.jpg",
 "id": "8",
 "info": " is the capital and largest city of England and the United Kingdom, with a population of just over 9 million. It stands on the River Thames in south-east England at the head of a 50-mile (80 km) estuary down to the North Sea, and has been a major settlement for two millennia. The City of London, its ancient core and financial centre, was founded by the Romans as Londinium and retains boundaries close to its medieval ones.Since the 19th century, 'London' has also referred to the metropolis around this core, historically split between the counties of Middlesex, Essex, Surrey, Kent, and Hertfordshire, which largely comprises Greater London, governed by the Greater London Authority.The City of Westminster, to the west of the City of London, has for centuries held the national government and parliament."
 },
 {
 "name": "Tokyo",
-"pais": "Japan",
+"country": "Japan",
 "image":"https://talktravelapp.com/wp-content/uploads/Tokyo-Japan.jpeg",
 "id": "9",
 "info": "Tokyo is the capital of Japan and the center of the Greater Tokyo Area. It is the most populous city in Japan, the third most populous city in the world, and the most populous city in the Asia-Pacific region. Tokyo is the most populous metropolitan area in the world. Tokyo is the most populous city in the Asia-Pacific region"
 },
 {
 "name": "Beijing",
-"pais": "China",
+"country": "China",
 "image":"https://q-xx.bstatic.com/xdata/images/hotel/max1024x768/292943585.jpg?k=c94deae404c7114f7bf8c4622101e9cb6e365f80e3c5f979d504b61ad70ada66&o=",
 "id": "10",
 "info": "Beijing is the capital of China and the country's largest city. It is the country's most populous city, with a population of 21.5 million, the second most populous city in the world, and the most populous city in Asia. Beijing is the world's largest city proper, the world's most populous metropolitan area, and the world's most populous urban area"
 },
 {
 "name": "Singapore",
-"pais": "Singapore",
+"country": "Singapore",
 "image":"https://upload.wikimedia.org/wikipedia/commons/2/2e/Singapore_Skyline_2019-10.jpg",
 "id": "11",
 "info": "Singapore is a city and country in Southeast Asia. It is the second-most populous city in Singapore, after Tokyo, and the most populous city in the Asia-Pacific region. It is the most populous city in the world, and the most populous city in Asia"
 },
 {
 "name": "Doha",
-"pais": "Qatar",
+"country": "Qatar",
 "image":"https://www.mdzol.com/u/fotografias/m/2020/12/3/f1280x720-988683_1120358_5050.jpg",
 "id": "12",
 "info": "Doha is the capital of Qatar and the second-largest city in the country. It is the most populous city in the country, with a population of 2.5 million. "
 },
 {
 "name": "Dubai",
-"pais": "Emirates",
+"country": "Emirates",
 "image":"https://media.revistaad.es/photos/619fa18475ef479a34eb9a4b/16:9/w_2560%2Cc_limit/Museo%2520Futuro.jpg",
 "id": "13",
 "info": " is the most populous city in the United Arab Emirates (UAE) and the capital of the Emirate of Dubai. Established in the 18th century as a small fishing village, the city grew rapidly in the early 21st century into a cosmopolitan metropolis with a focus on tourism and hospitality. Dubai is one of the world's most popular tourist destinations.This can be accredited to Dubai's mix of cosmopolitan lifestyle and local culture, as well as the city's having the second most five-star hotels in the world and the tallest building in the world, the Burj Khalifa. Because of upcoming competition and other reasons, the taller Creek Tower is being built to keep that title."
 },
 {
 "name": "Seoul",
-"pais": "South Korea",
+"country": "South Korea",
 "image":"https://a.cdn-hotels.com/gdcs/production97/d1351/a274bc26-9643-4bae-a91f-cebaf7f9fa56.jpg?impolicy=fcrop&w=800&h=533&q=medium",
 "id": "14",
 "info": "Officially known as the Seoul Special City, is the capital and largest metropolis of South Korea. According to the 2020 census, Seoul has a population of 9.9 million people, and forms the heart of the Seoul Capital Area with the surrounding Incheon metropolis and Gyeonggi province. It is considered to be a global city and rated as an Alpha–City by Globalization and World Cities Research Network (GaWC),Seoul was the world's 4th largest metropolitan economy in 2014 after Tokyo, New York City and Los Angeles"
 },
 {
 "name": "Santorini",
-"pais": "Greece",
+"country": "Greece",
 "image":"https://a.cdn-hotels.com/gdcs/production18/d1838/041ae6b1-0a88-4c22-a648-53a22dd4a006.jpg",
 "id": "15",
 "info": "Santorini is a Greek island in the Aegean Sea, about 100 kilometres (62 mi) south of the town of Nantucket. It is the most popular tourist destination in the country, with a population of about 1.5 million. The island is known for its natural beauty and its many beaches. The city of Santorini is the capital of the island, and is the largest city in the country."
 },
 {
 "name": "Sao Paulo",
-"pais": "Brazil",
+"country": "Brazil",
 "image":"https://media.staticontent.com/media/pictures/0c79c178-37b4-463a-be14-cd7105c22ebe",
 "id": "16",
 "info": "The city's name honors the Apostle, Saint Paul of Tarsus. The city's metropolitan area, the Greater São Paulo, ranks as the most populous in Brazil and the 12th most populous on Earth. The process of conurbation between the metropolitan areas around the Greater São Paulo (Campinas, Santos, Jundiaí, Sorocaba and São José dos Campos) created the São Paulo Macrometropolis, a megalopolis with more than 30 million inhabitants, one of the most populous urban agglomerations in the world."
 },
 {
 "name": "Cartagena",
-"pais": "Colombia",
+"country": "Colombia",
 "image":"https://denomades.s3.us-west-2.amazonaws.com/blog/wp-content/uploads/2020/05/11141948/ca-times.brightspotcdn.com_.jpg",
 "id": "17",
 "info": "Known since the colonial era as Cartagena de Indias, is a city and one of the major ports on the northern coast of Colombia in the Caribbean Coast Region, bordering the Caribbean sea. Cartagena's past role as a link in the route to West Indies provides it with important historical value for world exploration and preservation of heritage from the great commercial maritime routes.As a former Spanish colony, it was a key port for the export of Peruvian silver to Spain and for the import of enslaved Africans under the asiento system. It was defensible against pirate attacks in the Caribbean"
 },
 {
 "name": "Santiago de Chile",  
-"pais": "Chile",
+"country": "Chile",
 "image":"https://www.civitatis.com/blog/wp-content/uploads/2012/12/shutterstock_1282092994-1920x1458.jpg",
 "id": "18",
 "info": "Also known as Santiago de Chile, is the capital and largest city of Chile as well as one of the largest cities in the Americas. It is the center of Chile's most densely populated region, the Santiago Metropolitan Region, whose total population is 8 million, of which more than 6 million live in the city's continuous urban area. The city is entirely in the country's central valley. Most of the city lies between 500–650 m (1,640–2,133 ft) above mean sea level"
 },
 {
 "name": "Berlin",
-"pais": "Germany",
+"country": "Germany",
 "image":"https://www.germany.travel/media/redaktion/content/staedte_kultur_content/staedte/berlin_1/Berlin_Brandenburger_Tor_am_Pariser_Platz_im_Sonnenuntergang_Leitmotiv_German_Summer_Cities.jpg",
 "id": "19",
 "info": "Berlin is a world city of culture, politics, media and science. Its economy is based on high-tech firms and the service sector, encompassing a diverse range of creative industries, research facilities, media corporations and convention venues. Berlin serves as a continental hub for air and rail traffic and has a highly complex public transportation network. The metropolis is a popular tourist destination. Significant industries also include IT, pharmaceuticals, biomedical engineering, clean tech, biotechnology, construction and electronics."
 },
 {
 "name": "Madrid",
-"pais": "Spain",
+"country": "Spain",
 "image": "https://www.viajesencompania.com/wp-content/uploads/2020/09/madrid.jpg",
 "id": "20",
 "info": "While Madrid possesses modern infrastructure, it has preserved the look and feel of many of its historic neighbourhoods and streets. Its landmarks include the Plaza Mayor, the Royal Palace of Madrid; the Royal Theatre with its restored 1850 Opera House; the Buen Retiro Park, founded in 1631; the 19th-century National Library building (founded in 1712) containing some of Spain's historical archives; many national museums, and the Golden Triangle of Art, located along the Paseo del Prado and comprising three art museums: Prado Museum, the Reina Sofía Museum, a museum of modern art, and the Thyssen-Bornemisza Museum, which complements the holdings of the other two museums. Cibeles Palace and Fountain has become one of the monument symbols of the city"
 },
 {
 "name": "Dublin",
-"pais": "Ireland",
+"country": "Ireland",
 "image":"https://images.ecestaticos.com/RcCIF2yea9-VNeascDEfojeKMzE=/0x0:2121x1414/1200x900/filters:fill(white):format(jpg)/f.elconfidencial.com%2Foriginal%2F02f%2Fde4%2F0ab%2F02fde40abf5b6f32314460e28954c1b8.jpg",
 "id": "21",
 "info": "There is archaeological debate regarding precisely where and when Dublin originated, with a settlement established by the Gaels during or before the 7th century CE, and a second, Viking, settlement, following. As the small Kingdom of Dublin, the city grew, and it became Ireland's principal settlement after the 12th century Anglo-Norman invasion of Ireland. The city expanded rapidly from the 17th century and was briefly the second largest city in the British Empire after the Acts of Union in 1800. Following independence in 1922, Dublin became the capital of the Irish Free State, later renamed Ireland in 1937."
 },
 {
 "name": "Sydney",
-"pais": "Australia",
+"country": "Australia",
 "image": "https://www.viajarsydney.com/img/viajar-sydney.jpg",
 "id": "22",
 "info": "Indigenous Australians have inhabited the Greater Sydney region for at least 30,000 years, and Aboriginal engravings remain within the region. During his first Pacific voyage in 1770, Lieutenant James Cook and his crew became the first Europeans to chart the eastern coast of Australia, making landfall at Botany Bay. In 1788, the First Fleet of convicts, led by Arthur Phillip, founded Sydney as a British penal colony, the first European settlement in Australia. After World War II, it experienced mass migration and became one of the most multicultural cities in the world. Furthermore, 45.4% of the population reported having been born overseas, and the city has the fourth-largest foreign-born population of any city in the world after London and New York City"
 },
 {
 "name": "Cancun",
-"pais": "Mexico",
+"country": "Mexico",
 "image":"https://www.aviacionline.com/wp-content/uploads/2021/08/Blog_celebra-con-cancun-sus-51-anos-1026661085512_custom.jpg",
 "id": "23",
 "info": "is a city in southeast Mexico on the northeast coast of the Yucatán Peninsula in the Mexican state of Quintana Roo. It is a significant tourist destination in Mexico and the seat of the municipality of Benito Juárez. The city is on the Caribbean Sea and is one of Mexico's easternmost points. Cancún is just north of Mexico's Caribbean coast resort area known as the Riviera Maya."
 },
 {
 "name": "Osaka",
-"pais": "Japan",
+"country": "Japan",
 "image": "https://directiatravel.com/public/upload/images/1815255449castillo-osaka-muralla.jpg",
 "id": "24",
 "info": "is a designated city in the Kansai region of Honshu in Japan. It is the capital of and most populous city in Osaka Prefecture, and the third most populous city in Japan, following Tokyo and Yokohama. With a population of 2.7 million in the 2020 census, it is also the largest component of the Keihanshin Metropolitan Area, which is the second-largest metropolitan area in Japan and the 10th largest urban area in the world with more than 19 million inhabitants"

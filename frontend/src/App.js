@@ -8,6 +8,9 @@ import "../src/styles/styles.css";
 
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
+import ScrollToTop from "react-scroll-to-top";
+import ArrowCircleUpIcon from '@mui/icons-material/ArrowCircleUp';
+
 
 import Cities from './pages/Cities';
 import Contact from './pages/Contact';
@@ -16,6 +19,7 @@ import SignUp from './pages/SignIn';
 import NonPage from './pages/NonPage';
 import Index from './pages/Index';
 import Details from './pages/Details';
+
 
 
 function App() {
@@ -40,6 +44,11 @@ useEffect(() => {
         <Route path="*" element={<NonPage/>} />
       </Routes>
       <Footer />
+       <ScrollToTop
+        smooth
+        viewBox="0 0 24 24"
+        component={<ArrowCircleUpIcon />}
+      />
     </>
   )
 }

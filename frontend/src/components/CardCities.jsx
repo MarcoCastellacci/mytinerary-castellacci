@@ -10,6 +10,7 @@ import {Link as RouterLink} from "react-router-dom";
 function CardCities(props) {
 return (
 <>
+  
   <ImageList sx={{ width: '90vw', margin: '2rem', }}>
             {props.cities && props.cities.cities.map(city =>
         <ImageListItem key={city.image} className="image-list-item">
@@ -22,7 +23,7 @@ return (
             <RouterLink to={`/cities/city/${city.id}`}>
           <ImageListItemBar
             title={city.name}
-            subtitle={city.pais}
+            subtitle={city.country}
             actionIcon={
               <IconButton
                 sx={{ color: 'rgba(255, 255, 255, 0.54)' }}
@@ -35,7 +36,7 @@ return (
             </RouterLink>
         </ImageListItem>
       )}
-    </ImageList>
+  </ImageList>
 </>
 )
 }

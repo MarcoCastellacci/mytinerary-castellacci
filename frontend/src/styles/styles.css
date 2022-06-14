@@ -59,6 +59,7 @@ body {
 .gif-cities {
     width: 50%;
     height: 50vh;
+    margin-bottom: 10rem;
 }
 
 .title-cities {
@@ -199,6 +200,13 @@ height: auto;
 }
 
 /* Componenetes Botones Externos */
+.arrow-up{
+    font-size: 2rem !important;
+    position: relative;
+    left: 48%;
+    margin: 0 !important;
+}
+
 /* From uiverse.io by @Madflows */
 .button{
   display: flex;
@@ -245,6 +253,35 @@ height: auto;
   );
   transition: all 0.475s;
 }
+/* From uiverse.io by @alexruix */
+/* From uiverse.io by @alexruix */
+.input {
+ line-height: 28px;
+ border: 2px solid transparent;
+ border-bottom-color: #777;
+ padding: .2rem 0;
+ outline: none;
+ background-color: transparent;
+ color: #0d0c22;
+ transition: .3s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+
+.input:focus, input:hover {
+ outline: none;
+ padding: .2rem 1rem;
+ border-radius: 1rem;
+ border-color: #7a9cc6;
+}
+
+.input::placeholder {
+ color: #777;
+}
+
+.input:focus::placeholder {
+ opacity: 0;
+ transition: opacity .3s;
+}
+
 /* From uiverse.io by @Allyhere */
 .btn-donate {
   --clr-font-main: hsla(0 0% 20% / 100);
