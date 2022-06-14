@@ -11,7 +11,6 @@ import Box from "@mui/material/Box";
 
 export default function Carrousel(props) {
 
-console.log(props.Cities);
   return (
     <>
       <Box sx={{justifyContent: 'center'}}>
@@ -37,8 +36,8 @@ console.log(props.Cities);
         modules={[Autoplay, Grid, Pagination,  Navigation]}
         className="mySwiper"
       >
-        {props.cities && props.cities.cities.map(city => 
-        <SwiperSlide key={city.id} className="cities">
+        {props.cities && props.cities.cities.map((city, index) => 
+        <SwiperSlide key={index} className="cities">
           <img style={{height:'90%', width: '100%', objectFit: 'cover'}} src={city.image} alt="foto"/>
           <Typography variant="h6" style={{color: 'white', width: '100%'}} sx={{alignSelf:'flex-end', margin: '0 .5rem', }}>{city.name}</Typography>
         </SwiperSlide>

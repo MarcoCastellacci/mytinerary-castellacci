@@ -9,11 +9,10 @@ import {Link as RouterLink} from "react-router-dom";
 
 function CardCities(props) {
 return (
-<>
-  
   <ImageList sx={{ width: '90vw', margin: '2rem', }}>
-            {props.cities && props.cities.cities.map(city =>
-        <ImageListItem key={city.image} className="image-list-item">
+      <p style={{display: 'none'}}>Hola</p>
+            {props.cities && props.cities.map((city, index) =>
+        <ImageListItem key={index} className="image-list-item">
           <img
             src={`${city.image}?w=248&fit=crop&auto=format`}
             srcSet={`${city.image}?w=248&fit=crop&auto=format&dpr=2 2x`}
@@ -37,7 +36,6 @@ return (
         </ImageListItem>
       )}
   </ImageList>
-</>
 )
 }
 
