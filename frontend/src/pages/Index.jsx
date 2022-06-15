@@ -3,6 +3,8 @@ import Carrousel from '../components/Carrousel';
 import CallToAction from '../components/CallToAction';
 import { useState, useEffect} from 'react';
 import '../styles/styles.css';
+import axios from 'axios';
+
 
 
 function Index (){
@@ -11,9 +13,8 @@ function Index (){
 const [cities,setCities] = useState()
 
 useEffect(() => {
-fetch("../data/cities.json")
-.then(response =>response.json())
-.then(data => setCities(data))
+axios.get("https://62a395985bd3609cee6cceb8.mockapi.io/api/cities")
+.then(response  => setCities(response.data))
 .catch(error => console.error(error))
 },[])
 return (

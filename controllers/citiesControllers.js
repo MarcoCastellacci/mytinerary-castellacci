@@ -1,4 +1,4 @@
-const Cities = require('../models/cities');
+const Cities = require('../models/city');
 
 const citiesControllers = {
     getCities: async(req, res) => {

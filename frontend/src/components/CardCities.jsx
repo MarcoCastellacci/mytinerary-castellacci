@@ -19,7 +19,7 @@ return (
             alt={city.name}
             loading="lazy"
           />
-            <RouterLink to={`/cities/city/${city.id}`}>
+            <RouterLink to={`/cities/city/${city._id}`}>
           <ImageListItemBar
             title={city.name}
             subtitle={city.country}

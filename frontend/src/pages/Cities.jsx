@@ -2,6 +2,7 @@ import React from "react";
 import '../styles/styles.css';
 import CardCities from '../components/CardCities';
 import { useState, useEffect} from 'react';
+import axios from 'axios';
 
 
 
@@ -12,13 +13,10 @@ const [search, setSearch] = useState('')
 // const [searchCities, setSearchCities] = useState([])
 
 useEffect(() => {
-fetch("./data/cities.json")
-.then(response =>response.json())
-.then(data => {
-setCities(data.cities)
-console.log(data)
-let cities = data.cities.filter(city => city.name.toLowerCase().startsWith(search.trim().toLowerCase()))
-        setCities(cities)
+axios.get("http://localhost:4000/api/cities")
+.then(response => {setCities(response)
+let citiesFilter = response.data.response.cities.filter(city => city.name.toLowerCase().startsWith(search.trim().toLowerCase()))
+        setCities(citiesFilter)
 })
 },[search])
 
