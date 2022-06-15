@@ -10,7 +10,7 @@ function Cities (){
 
 const [cities,setCities] = useState()
 const [search, setSearch] = useState('')
-// const [searchCities, setSearchCities] = useState([])
+
 
 useEffect(() => {
 axios.get("http://localhost:4000/api/cities")
