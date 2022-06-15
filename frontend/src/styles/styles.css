@@ -173,6 +173,7 @@ height: auto;
 .image-detail img{
   height: 50vh !important;
   object-fit: contain !important;
+  width: 80vw !important;
 }
 .description {
   display: flex;

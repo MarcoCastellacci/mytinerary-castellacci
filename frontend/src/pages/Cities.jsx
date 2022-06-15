@@ -19,7 +19,7 @@ let citiesFilter = response.data.response.cities.filter(city => city.name.toLowe
         setCities(citiesFilter)
 })
 },[search])
-
+console.log(cities)
 return (
         <div className="main main-cities"> 
         <h2 className="title-cities">Find your City</h2>

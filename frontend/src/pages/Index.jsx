@@ -17,6 +17,7 @@ axios.get("https://62a395985bd3609cee6cceb8.mockapi.io/api/cities")
 .then(response  => setCities(response.data))
 .catch(error => console.error(error))
 },[])
+console.log(cities)
 return (
 <>
 <div className="main">
