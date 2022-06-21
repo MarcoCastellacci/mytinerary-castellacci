@@ -11,7 +11,6 @@ function Cities (){
 const [cities,setCities] = useState()
 const [search, setSearch] = useState('')
 
-
 useEffect(() => {
 axios.get("http://localhost:4000/api/cities")
 .then(response => {setCities(response)
@@ -19,7 +18,7 @@ let citiesFilter = response.data.response.cities.filter(city => city.name.toLowe
         setCities(citiesFilter)
 })
 },[search])
-console.log(cities)
+
 return (
         <div className="main main-cities"> 
         <h2 className="title-cities">Find your City</h2>

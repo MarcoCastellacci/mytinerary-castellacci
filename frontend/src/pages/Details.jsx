@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 import BtnBack from '../components/BtnBack';
 import '../styles/styles.css';
 import axios from 'axios';
-
+import Itinerarys from '../components/Itinerarys';
 
 
 function Details() {
@@ -27,6 +27,9 @@ axios.get(`http://localhost:4000/api/cities/${id}`)
             </div>  
             <div className='description'>
                 <p>{cities.info}</p>
+            </div>
+            <div className='itinerary'>
+            <Itinerarys itinerarys={cities} />
             </div>
             <BtnBack />
 

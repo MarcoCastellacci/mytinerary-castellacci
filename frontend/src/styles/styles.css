@@ -200,6 +200,10 @@ height: auto;
   text-shadow: 0px 0px 5px rgb(70, 39, 247);
 }
 
+.itinerary {
+  margin: 2rem !important;
+}
+
 /* Componenetes Botones Externos */
 .arrow-up{
     font-size: 2rem !important;

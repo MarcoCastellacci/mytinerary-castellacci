@@ -19,6 +19,7 @@ import SignUp from './pages/SignIn';
 import NonPage from './pages/NonPage';
 import Index from './pages/Index';
 import Details from './pages/Details';
+import Itinerary from './components/Itinerarys';
 
 
 
@@ -36,6 +37,7 @@ useEffect(() => {
       <Routes>
         <Route path="/cities" element={<Cities/>} />
         <Route path="/cities/city/:id" element={<Details/>} />
+        <Route path="/cities/city/:id" element={<Itinerary/>} />        
         <Route path="/contact" element={<Contact/>} />
         <Route path="/login" element={<LogIn/>} />
         <Route path="/signup" element={<SignUp/>} />  
@@ -44,7 +46,7 @@ useEffect(() => {
         <Route path="*" element={<NonPage/>} />
       </Routes>
       <Footer />
-       <ScrollToTop
+        <ScrollToTop
         smooth
         viewBox="0 0 24 24"
         component={<ArrowCircleUpIcon />}
