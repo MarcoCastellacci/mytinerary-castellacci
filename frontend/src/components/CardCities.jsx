@@ -5,9 +5,23 @@ import ImageListItemBar from '@mui/material/ImageListItemBar';
 import IconButton from '@mui/material/IconButton';
 import InfoIcon from '@mui/icons-material/Info';
 import {Link as RouterLink} from "react-router-dom";
+import { useEffect} from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import citiesActions from '../redux/actions/citiesActions';
 
 
 function CardCities(props) {
+console.log(props.input)
+console.log(props.cities)
+const dispatch = useDispatch();
+
+useEffect(() => {
+        dispatch(citiesActions.filterCities(props.input))
+ // eslint-disable-next-line 
+},[props.input])
+const filteredCities = useSelector(state => state.citiesReducer.filterCities)
+
+
 return (
   <ImageList sx={{ width: '90vw', margin: '2rem', }}>
       <p style={{display: 'none'}}>Hola</p>

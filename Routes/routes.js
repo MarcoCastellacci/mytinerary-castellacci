@@ -3,7 +3,7 @@ const Router = require('express').Router();
 const citiesControllers = require('../controllers/citiesControllers');
 const itineraryControllers = require('../controllers/itinerarysControllers');
 const {getCities, getOneCity, addCity, modifyCity, addMultipleCity, removeCity} = citiesControllers;
-const {getItinerarys, getOneItinerary, addItinerary, modifyItinerary, deleteItinerary, addLike, addHashtag, deleteHashtag, getItinerarysByHashtag} = itineraryControllers;
+const {getItinerarys, getOneItinerary, addItinerary, modifyItinerary, deleteItinerary, addLike, addHashtag, deleteHashtag, getItinerarysByHashtag,getItinerarysByCity} = itineraryControllers;
 
 Router.route('/cities')
 .get(getCities)
@@ -33,5 +33,8 @@ Router.route('/itinerarys/:id/hashtag')
 .post(addHashtag)
 .delete(deleteHashtag)
 .get(getItinerarysByHashtag)
+
+Router.route('/itinerarys/city/:id')
+.get(getItinerarysByCity)
 
 module.exports = Router;

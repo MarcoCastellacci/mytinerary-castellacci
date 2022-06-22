@@ -1,111 +1,111 @@
 {"data":[
     {
-        "name": "Takeshita Street", 
+        "name": "Tsukiji Fish Market Food and Culture", 
         "nameUser":"Steve Jobes",
-        "imageUser": "https://images.generated.photos/oy8DE6kOfx2BURV2BNXCAD7F-HBgunG582CgALfGPjk/rs:fit:256:256/czM6Ly9pY29uczgu/Z3Bob3Rvcy1wcm9k/LnBob3Rvcy92M18w/ODQ4MjUwLmpwZw.jpg", 
-        "info": "Browse the trendy shops of Takeshita Street, a narrow district lined with an array of colorful boutiques, snack vendors, and restaurants. Popular with teenagers, the street is the hotspot for purchasing latest fashions and features stores selling everything from casual clothing to the more extreme, costume-like outfits and accessories aimed at local subcultures. As you browse the stores and window shop, you can grab a delicious snack or refreshing bubble tea from one of the vendors, or take a break at a restaurant and try a local dish.",
+        "imageUser": "https://d2rdhxfof4qmbb.cloudfront.net/wp-content/uploads/20180831180533/Tsukiji-Fish-market-in-Tokyo-Japan.jpg", 
+        "activities": ["...","...","..."],
         "price": 40, 
         "time": 150, 
         "likes": 1, 
         "hashtags": ["takeshita", "street", "shops", "fashion", "clothing", "accessories", "subcultures", "restaurant"],
         "image": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/12/b2/63/ac/harajuku-takeshita-dori.jpg?w=1200&h=-1&s=1",
-        "_id": "62a8d428cdd96436cc0993b5"
+        "city": "62a8d428cdd96436cc0993b5"
     },
     {
-        "name": "Meguro River", 
+        "name": "Old Town Tokyo", 
         "nameUser":"Carlos Salvador",
-        "imageUser": "https://images.generated.photos/qg9qkVyFIRrro5J4OAUGNWSoWRJcqt0fYb3jYvBUUxI/rs:fit:512:512/wm:0.95:sowe:18:18:0.33/czM6Ly9pY29uczgu/Z3Bob3Rvcy1wcm9k/LnBob3Rvcy92M18w/OTY0NjkxLmpwZw.jpg", 
-        "info":" Take a stroll along the banks of Meguro River, a river flowing through the city and into Tokyo Bay. The concrete walls of the river give it the appearance of an urban canal, but the public space either side offers plentiful areas of well-maintained greenery, gardens, and lawns. The river provides a welcome reprieve from the stresses of the capital city, and has become particularly popular for its cherry blossom trees, leaning in and over the water from opposite banks to create a tunnel of blossom in some areas",
+        "imageUser": "https://jw-webmagazine.com/wp-content/uploads/2019/05/aaf4d89658cbdd98435e8e2a36c42546_m-min.jpg", 
+        "activities":["...","...","..."],
         "price": 19, 
         "time": 60, 
         "likes": 6, 
         "hashtags": ["meguro", "river", "gardens", "blossom", "trees", "water"],
         "image": "https://storage.googleapis.com/pod_public/1300/83269.jpg",
-        "_id": "62a8d428cdd96436cc0993b5"
+        "city": "62a8d428cdd96436cc0993b5"
     },
     {
-        "name": "Z Lounge by Zengo", 
+        "name": "City Combo Tour", 
         "nameUser":"Kate Balnche",
         "imageUser": "https://images.generated.photos/cJ9uL-i96velOeGezd4Amb7-mQnW1jH4bUXCpwlDTFI/rs:fit:256:256/czM6Ly9pY29uczgu/Z3Bob3Rvcy1wcm9k/LnBob3Rvcy92M18w/ODkzNjgwLmpwZw.jpg", 
-        "info": "Situated on the 61st floor of the Kempinski Residence & Suites in West Bay. The restaurant features a vibrant decor that fuses modern asian an inventive design, providing the perfect ambience to savour the cuisine and adventurous variety of flavors",
-        "price": 150, 
+        "activities": ["...","...","..."],
+        "price": 198, 
         "time": 150, 
         "likes": 6, 
         "hashtags": ["bar", "music", "drinks", "entertainment"],
         "image": "https://media.afar.com/uploads/images/post_images/images/kq1bHyyTcj/original_100e98a9a5aaf2ae8822c6d52338ffee.jpg?1455881522",
-        "_id": "62a8d428cdd96436cc0993b8"
+        "city": "62a8d428cdd96436cc0993b8"
     },
     {
-        "name": "Burj Khalifa", 
+        "name": "Burj Khalifa & City", 
         "nameUser":"Mercedes Martinez",
         "imageUser": "https://images.generated.photos/4I42k2kJJikFHoQggOB3cyuqXImKtEr09l7znP8GyVo/rs:fit:256:256/czM6Ly9pY29uczgu/Z3Bob3Rvcy1wcm9k/LnBob3Rvcy92M18w/MzMyNzYzLmpwZw.jpg", 
-        "info": "Marvel at Burj Khalifa, the 829.8 m (2,722 ft) high futuristic centerpiece of the modern downtown area. Upon construction in 2010, the mega skyscraper ranked as the world's tallest manmade structure. Designed by architect Adrian Smith, it incorporates patterns from Islamic art and architecture, with its tapering tiers reminiscent of traditional spiral minarets. Enjoy the view from the outdoor observation deck on the 124th floor: at 452 m (1,483 ft) above the city, you'll gain a true bird's-eye perspective on the developing metropolis below",
+        "activities": ["...","...","..."],
         "price": 138, 
         "time": 90, 
         "likes": 4, 
         "hashtags": ["towers", "view", "skyscraper", "architecture", "design", "modern", "city", "metropolis", "skyline"],
         "image": "https://cdn.culturagenial.com/es/imagenes/burj-khalifa-og.jpg",
-        "_id": "62a8d428cdd96436cc0993b9"
+        "city": "62a8d428cdd96436cc0993b9"
     },
     {
-        "name": "Wild Wadi Waterpark", 
+        "name": "Aladdin Tour", 
         "nameUser":"Ibeth Isackson",
         "imageUser": "https://images.generated.photos/lyrGG3zQZSB7e3yHjj1WOr9wx2RxO6N7lK4bcmTOLZc/rs:fit:256:256/czM6Ly9pY29uczgu/Z3Bob3Rvcy1wcm9k/LnBob3Rvcy92M18w/MjcxMzUwLmpwZw.jpg", 
-        "info": "Enjoy the rides and diversions at Wild Wadi Waterpark, one of Dubai's top outdoor attractions. Experience the bumps, twists, and turns of the multiple water slides, and head to the wave pool for an exhilarating dip in the temperature-controlled waters. Try out your board skills in the surf pool, and cool off under the 18 m (59 ft) waterfall as it cascades down into the splash pool.",
+        "activities": ["...","...","..."],
         "price": 67, 
         "time": 240, 
         "likes": 10, 
         "hashtags": ["water", "slides", "waterfalls", "pool", "surf", "diversions", "rides"],
         "image": "https://www.timeoutdubai.com/cloud/timeoutdubai/2021/09/11/jCoqI1It-Wild-Wadi-1.jpg",
-        "_id": "62a8d428cdd96436cc0993b9"
+        "city": "62a8d428cdd96436cc0993b9"
     },
     {
         "name": "Singapore Flye", 
         "nameUser":"Dejon Willams",
         "imageUser": "https://images.generated.photos/sbz27Z9JKaDvC7qgUxNaUNfSuHnxD7GdbenqF_hR6L8/rs:fit:512:512/wm:0.95:sowe:18:18:0.33/czM6Ly9pY29uczgu/Z3Bob3Rvcy1wcm9k/LnBob3Rvcy92M18w/MTg0NTUyLmpwZw.jpg", 
-        "info": "Enjoy panoramic views of the city from high up above at Singapore Flyer. The Ferris wheel reaches 165 m (541 ft) at its pinnacle and takes half an hour to complete a spin. You can celebrate special occasions on board with a range of packages, including a signature cocktail flight or a couple's dinner with full butler service. Buy your tickets online to avoid waiting in line on the day of your visit.",
+        "activities": ["...","...","..."],
         "price": 23, 
         "time": 90, 
         "likes":5, 
         "hashtags": ["ferris", "wheel", "view", "panoramic", "city", "flyer", "singapore"],
         "image": "https://images.thrillophilia.com/image/upload/s--CYrhJH2k--/c_fill,h_775,q_auto,w_1600/f_auto,fl_strip_profile/v1/images/photos/000/070/407/original/1539866084_ab1.jpg.jpg?1539866083",
-        "_id": "62a8d428cdd96436cc0993b7"
+        "city": "62a8d428cdd96436cc0993b7"
     },
     {
         "name": "Scuba & Snorkeling", 
         "nameUser":"Lauren Phillips",
         "imageUser": "https://images.generated.photos/YwXMP9wgSUjrdKLJ3L73SQ8dvIns9EFRUrqm6vavkp8/rs:fit:512:512/wm:0.95:sowe:18:18:0.33/czM6Ly9pY29uczgu/Z3Bob3Rvcy1wcm9k/LnBob3Rvcy90cmFu/c3BhcmVudF92My92/M18wMjYxNDQ3LnBu/Zw.png", 
-        "info":" Release your inner explorer and discover the marine world, ancient history, and adventure parks of Riviera Maya on a guided snorkeling or scuba diving tour from Playa del Carmen. Most of these outdoor excursions offer more than underwater adventures around coral reefs, lagoons, and cenotes--an exciting blend of history, culture, and adrenalin-fueled activities awaits, including ziplining, rappelling, ATV jungle riding, and touring archeological sites",
+        "activities": ["...","...","..."],
         "price": 0, 
         "time": 0, 
         "likes": 15, 
         "hashtags": ["scuba", "snorkeling", "adventure", "coral", "reefs", "lagoons", "cenotes", "archeological", "sites"],
         "image": "https://www.squalodivers.com/wp-content/uploads/2019/10/2-tank-afternoon.jpg",
-        "_id": "62a8d428cdd96436cc0993c3"
+        "city": "62a8d428cdd96436cc0993c3"
     },
     {
         "name": "Plaza Santo Domingo", 
         "nameUser":"Sarah Connors",
         "imageUser": "https://images.generated.photos/BDmgbCarkTo3ZH_UHeJ5OqBs90rgbkWCdOTY28fpIKg/rs:fit:512:512/wm:0.95:sowe:18:18:0.33/czM6Ly9pY29uczgu/Z3Bob3Rvcy1wcm9k/LnBob3Rvcy90cmFu/c3BhcmVudF92My92/M18wNDcwMTU1LnBu/Zw.png", 
-        "info": "Surrounded by colorful buildings and verandas, Plaza Santo Domingo serves as a hub for the city's outdoor dining and cafe culture. Head for the square and marvel at the brightly hued homes surrounding it, or snap a picture with the delightfully chubby Botero statue in the center. ",
+        "activities": ["...","...","..."],
         "price": 10, 
         "time": 180, 
         "likes": 2, 
         "hashtags": ["plaza", "santo", "domingo", "dining", "cafe", "culture", "outdoor"],
         "image": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/0a/87/60/61/desde-los-balcones.jpg?w=1200&h=-1&s=1",
-        "_id": "62a8d428cdd96436cc0993bd"
+        "city": "62a8d428cdd96436cc0993bd"
     },
     {
         "name": "Temple Bar", 
         "nameUser":"Mariano Salvatierra",
         "imageUser": "https://images.generated.photos/C7zRPxNE5yR4qhqMGMG8zaKgYW_n4CPPbca58j4GyRU/rs:fit:512:512/wm:0.95:sowe:18:18:0.33/czM6Ly9pY29uczgu/Z3Bob3Rvcy1wcm9k/LnBob3Rvcy90cmFu/c3BhcmVudF92My92/M18wMjQ5OTgyLnBu/Zw.png", 
-        "info": "Capture Dublin's street culture at Temple Bar, a former slum now recognized for its vibrant nightlife. In the 1980s this neighborhood on the south bank of the Liffey River offered cheap rent to artists and young entrepreneurs, and quickly became the city's foremost cultural quarter. The neighborhood's cobbled streets offer family-friendly attractions during the day, including shops, restaurants, and galleries. After dark this riverside neighborhood transforms into a magnet for rowdy partygoers, attracted by the quarter's many pubs and bars.",
+        "activities": ["...","...","..."],
         "price": 20, 
         "time": 150, 
         "likes": 2, 
         "hashtags": ["temple", "bar", "street", "culture", "nightlife", "artists", "entrepreneurs", "pubs"],
         "image": "https://cdn.shopify.com/s/files/1/0539/5195/5137/files/2e45963e-563b-43f4-885b-6c582bcc9815_4c81c1c2-19f0-406a-9f85-b3a6c35bc5cf_1200x1049.jpg?v=1613929087",
-        "_id": "62a8d428cdd96436cc0993c1"
+        "city": "62a8d428cdd96436cc0993c1"
     }
 ]
 }

@@ -2,28 +2,27 @@ import React from "react";
 import '../styles/styles.css';
 import CardCities from '../components/CardCities';
 import { useState, useEffect} from 'react';
-import axios from 'axios';
-
+// import axios from 'axios';
+import { useDispatch, useSelector } from 'react-redux';
+import citiesActions from '../redux/actions/citiesActions';
 
 
 function Cities (){
 
-const [cities,setCities] = useState()
+// const [cities,setCities] = useState()
 const [search, setSearch] = useState('')
+const dispatch = useDispatch();
 
 useEffect(() => {
-axios.get("http://localhost:4000/api/cities")
-.then(response => {setCities(response)
-let citiesFilter = response.data.response.cities.filter(city => city.name.toLowerCase().startsWith(search.trim().toLowerCase()))
-        setCities(citiesFilter)
-})
-},[search])
-
+        dispatch(citiesActions.getCities())
+ // eslint-disable-next-line 
+},[])
+const cities = useSelector(state => state.citiesReducer.cities)
 return (
         <div className="main main-cities"> 
         <h2 className="title-cities">Find your City</h2>
                 <input placeholder="Find your City" type="text" className="input" onKeyUp={(e) => {setSearch(e.target.value)}}></input>
-                <CardCities cities={cities}/>
+                <CardCities input={search} cities={cities}/>
         </div>   
 )
 }
