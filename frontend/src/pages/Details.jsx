@@ -1,20 +1,35 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
-import { useEffect, useState } from 'react';
+
 import BtnBack from '../components/BtnBack';
 import '../styles/styles.css';
-import axios from 'axios';
+
+import { useEffect } from 'react';
 import Itinerarys from '../components/Itinerarys';
+import { useSelector } from 'react-redux';
+import citiesActions from '../redux/actions/citiesActions';
+import { useDispatch } from 'react-redux';
+import itineraryActions from '../redux/actions/itineraryActions';
 
 
 function Details() {
 const {id} = useParams();
-const [cities,setCities] = useState()
+const dispatch = useDispatch();
+
+    useEffect(() => {
+        dispatch(citiesActions.getCity(id));
+    // eslint-disable-next-line
+    },[])
 
 useEffect(() => {
-axios.get(`http://localhost:4000/api/cities/${id}`)
-.then(response => setCities(response.data.response))
-})
+    dispatch(itineraryActions.getItineraryByCity(id))
+    // eslint-disable-next-line
+    },[]) 
+const cities = useSelector(store => store.citiesReducer.city);
+console.log(cities)
+const itinerary = useSelector(store => store.itineraryReducer.itineraryByCity);
+console.log(itinerary)
+
     return (
     <>
         {cities && 
@@ -29,7 +44,13 @@ axios.get(`http://localhost:4000/api/cities/${id}`)
                 <p>{cities.info}</p>
             </div>
             <div className='itinerary'>
-            <Itinerarys itinerarys={cities} />
+            {itinerary.length > 0 ?
+                itinerary.map(itinerary => (
+            <Itinerarys itinerarys={itinerary} key={itinerary._id} />)):
+                <div>
+                    <h1> No Itinerary Yet </h1>
+                </div>  
+            }
             </div>
             <BtnBack />
 

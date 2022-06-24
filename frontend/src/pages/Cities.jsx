@@ -3,7 +3,7 @@ import '../styles/styles.css';
 import CardCities from '../components/CardCities';
 import { useState, useEffect} from 'react';
 // import axios from 'axios';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch} from 'react-redux';
 import citiesActions from '../redux/actions/citiesActions';
 
 
@@ -14,15 +14,15 @@ const [search, setSearch] = useState('')
 const dispatch = useDispatch();
 
 useEffect(() => {
-        dispatch(citiesActions.getCities())
+        dispatch(citiesActions.filterCities(search))
  // eslint-disable-next-line 
-},[])
-const cities = useSelector(state => state.citiesReducer.cities)
+},[search])
+
 return (
         <div className="main main-cities"> 
         <h2 className="title-cities">Find your City</h2>
                 <input placeholder="Find your City" type="text" className="input" onKeyUp={(e) => {setSearch(e.target.value)}}></input>
-                <CardCities input={search} cities={cities}/>
+                <CardCities />
         </div>   
 )
 }

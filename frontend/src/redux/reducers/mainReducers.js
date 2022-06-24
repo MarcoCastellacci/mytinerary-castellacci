@@ -1,6 +1,7 @@
 import { combineReducers } from "redux";
-import citiesReducer from "./citiesReducer";
+import citiesReducer from './citiesReducer';
+import itineraryReducer from './itineraryReducer';
 
-const mainReducer = combineReducers({citiesReducer});
+const mainReducer = combineReducers({citiesReducer,itineraryReducer});
 
 export default mainReducer;

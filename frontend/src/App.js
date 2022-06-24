@@ -11,6 +11,9 @@ import Footer from './components/Footer';
 import ScrollToTop from "react-scroll-to-top";
 import ArrowCircleUpIcon from '@mui/icons-material/ArrowCircleUp';
 
+import { useDispatch} from 'react-redux';
+import citiesActions from './redux/actions/citiesActions';
+
 
 import Cities from './pages/Cities';
 import Contact from './pages/Contact';
@@ -31,6 +34,12 @@ useEffect(() => {
     }, 500)
 }, []);
 
+const dispatch = useDispatch();
+
+useEffect(() => {
+dispatch(citiesActions.getCities())
+// eslint-disable-next-line
+},[])
   return (
     <>
       <Navbar />

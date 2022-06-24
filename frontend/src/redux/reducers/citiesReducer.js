@@ -1,16 +1,17 @@
 const initialState = {
     cities: [],
-    city: {},
+    city: [],
     filterCities: []
 }
 
 const citiesReducer = (state = initialState, action) => {  
-    console.log(state)
+  
     switch (action.type) {
             case 'GET_CITIES':
                 return {
                     ...state,
-                    cities: action.payload
+                    cities: action.payload,
+                    filterCities: action.payload
                 }
             case 'GET_CITY':
                 return {        
@@ -18,7 +19,7 @@ const citiesReducer = (state = initialState, action) => {
                     city: action.payload
                 }
             case 'FILTER_CITIES':
-                let filter = state.cities.filter(city => city.name.toLowerCase().includes(action.payload.toLowerCase()))
+                let filter = state.cities.filter(city => city.name.toLowerCase().includes(action.payload.trim().toLowerCase()))
                 return {
                     ...state,
                     filterCities: filter

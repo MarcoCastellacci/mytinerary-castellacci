@@ -8,8 +8,11 @@ import "../styles/styles.css";
 import {Autoplay, Grid, Pagination,  Navigation } from "swiper";
 import Typography  from "@mui/material/Typography";
 import Box from "@mui/material/Box";
+import { useSelector } from "react-redux";
 
-export default function Carrousel(props) {
+export default function Carrousel() {
+const cities = useSelector(store => store.citiesReducer.cities);
+
   return (
     <>
       <Box sx={{justifyContent: 'center'}}>
@@ -35,7 +38,7 @@ export default function Carrousel(props) {
         modules={[Autoplay, Grid, Pagination,  Navigation]}
         className="mySwiper"
       >
-        {props.cities && props.cities.cities.map((city, index) => 
+        {cities && cities.map((city, index) => 
         <SwiperSlide key={index} className="cities">
           <img style={{height:'90%', width: '100%', objectFit: 'cover'}} src={city.image} alt="foto"/>
           <Typography variant="h6" style={{color: 'white', width: '100%'}} sx={{alignSelf:'flex-end', margin: '0 .5rem', }}>{city.name}</Typography>

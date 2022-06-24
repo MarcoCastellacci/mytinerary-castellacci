@@ -15,8 +15,8 @@ const citiesActions = {
     getCities: () => {
         return async (dispatch, getState) => {
             try {
-                const res = await axios.get('http://localhost:4000/api/cities')
-                dispatch({type: "GET_CITIES", payload: res.data
+                const res = await axios.get(apiUrl + 'api/cities')
+                dispatch({type: 'GET_CITIES', payload: res.data.response.cities
                 })
             } catch (error) {
                 console.log(error)
@@ -27,7 +27,7 @@ const citiesActions = {
         return async (dispatch, getState) => {
             try {
                 const res = await axios.get(apiUrl + `api/cities/${id}`)
-                dispatch({type: "GET_CITY", payload: res})
+                dispatch({type: 'GET_CITY', payload: res.data.response})
             } catch (error) {
                 console.log(error)
             }
@@ -54,7 +54,7 @@ const citiesActions = {
     filterCities: (input) => { 
         return async (dispatch, getState) => {
             try {
-                dispatch({type: "FILTER_CITIES", payload: input})
+                dispatch({type: 'FILTER_CITIES', payload: input})
             } catch (error) {
                 console.log(error)
             }
