@@ -28,21 +28,25 @@ const { expand, ...other } = props;
 
 export default function Itinerarys(props) {
     const [expanded, setExpanded] = useState(false);
+    const [activities, setActivities] = useState(false);
     const [likes, setLikes] = useState(props.itinerarys.likes);
     const [isClicked, setIsClicked] = useState(false);
     
     const handleExpandClick = () => {
     setExpanded(!expanded);
     };
+    const handleExpandClickActivities = () => {
+        setActivities(!activities);
+    };
 
-let price = props.itinerarys.price.toFixed(2);   
-if (price > 0 && price < 30) {
+let price = props.itinerarys.price;   
+if ( price < 30) {
         price = '💵';
-} else if (price > 30 && price < 60) {
+} else if (price < 60) {
         price = '💵💵';
-} else if (price > 60 && price < 100) {
+} else if (price < 100) {
         price = '💵💵💵';
-} else if (price > 100 && price < 150) {
+} else if (price < 150) {
         price = '💵💵💵💵';
 } else if (price > 150) {
         price = '💵💵💵💵💵';
@@ -72,52 +76,70 @@ return (
         image={props.itinerarys.image}
         alt='itinerary'
         />
-        <CardContent>
-            <Typography variant="body1" color="white">
+        <CardContent sx={{marginBottom:'0'}}>
+            <Typography variant="h4" color="white" sx={{textAlign: 'center'}}>
             {props.itinerarys.name}
             </Typography>
         </CardContent>
-        <CardActions disableSpacing>
-            <IconButton className={ `like-button ${isClicked && 'liked'}` } onClick={ handleClick }>
+        <CardActions disableSpacing >
+            <IconButton sx={{margin: '1.5rem', marginY: '0'}} className={ `like-button ${isClicked && 'liked'}` } onClick={ handleClick }>
                 <FavoriteIcon sx={{ color:'red'}} className="likes-counter" />
                 <Typography variant="body2" color="white" sx={{margin: '1rem'}}>
                 {likes}
                 </Typography>
             </IconButton>
+            <Typography paragraph sx={{alignItems: 'center', margin: '1.5rem', marginY: '0' }}>
+                <span> Estimated time: {props.itinerarys.time} Min. </span>
+            </Typography>
+            <Typography paragraph sx={{alignItems: 'center', margin: '1.5rem', marginY: '0' }}>
+                <span> Price: {price} </span>
+            </Typography>
             <ExpandMore
-            expand={expanded}
-            onClick={handleExpandClick}
-            aria-expanded={expanded}
-            aria-label="show more"
-            sx={{ color: 'white' }}
-            >
-            <ExpandMoreIcon />
+                expand={expanded}
+                onClick={handleExpandClick}
+                aria-expanded={expanded}
+                aria-label="show more"
+                sx={{ color: 'white' }}
+                >
+                <ExpandMoreIcon />
             </ExpandMore>
         </CardActions>
-        <Collapse in={expanded} timeout="auto" unmountOnExit>
-            <CardContent>
-                <Typography paragraph>
-                {props.itinerarys.info}
-                <Typography sx={{margin: '1rem', textAlign: 'center'}}>Activities</Typography>
-                {props.itinerarys.activities.map(activity => (
-                    <Typography paragraph>
+            <Collapse in={expanded} timeout="auto" unmountOnExit>
+                <CardContent>
+                        <Typography paragraph>
+                            {props.itinerarys.info}
+                        </Typography>
+                        <Typography paragraph sx={{ margin: '2rem'}}>
+                            {props.itinerarys.hashtags.map((hashtag, index) => (
+                                <span key={index}>#{hashtag} </span>))}
+                        </Typography>
+                    <CardContent>
+                    <CardActions>
+                        <Typography variant="h6" sx={{margin: '1rem',marginBottom:'0', textAlign: 'center'}}>
+                            Activities
+                        </Typography>
+                            <ExpandMore
+                            expand={activities}
+                            onClick={handleExpandClickActivities}
+                            aria-expanded={activities}
+                            aria-label="show more"
+                            sx={{ color: 'white', textAlign: 'center'}}
+                            >
+                            <ExpandMoreIcon />
+                            </ExpandMore>
+                    </CardActions>
+                    </CardContent>
+                </CardContent>
+            </Collapse>
+        
+        <Collapse in={activities} timeout="auto" unmountOnExit>
+                <CardContent>  
+                    {props.itinerarys.activities.map((activity, index )=> (
+                    <Typography paragraph key={index}>
                     {activity}
                     </Typography>
-                ))}
-                </Typography>
-                <CardContent>
-                    <Typography paragraph>
-                        <span> Estimated time: {props.itinerarys.time} Min. </span>
-                    </Typography>
-                    <Typography paragraph>
-                        <span> Price: {price} </span>
-                    </Typography>
-                    <Typography paragraph sx={{ margin: '2rem'}}>
-                        {props.itinerarys.hashtags.map(hashtag => (
-                            <span key={hashtag}>#{hashtag} </span>))}
-                    </Typography>
+                    ))}
                 </CardContent>
-            </CardContent>
         </Collapse>
     </Card>
 );

@@ -8,6 +8,7 @@ const itineraryController = {
         try {
         itinerarys = await Itinerary.find()
                     .populate('city')
+                    .populate('activities')
         }  catch (err) { error = err }
         res.json({
             response: error ? 'ERROR' : {itinerarys},

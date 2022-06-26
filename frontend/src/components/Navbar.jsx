@@ -15,7 +15,7 @@ import '../styles/styles.css';
 import {Link as RouterLink} from "react-router-dom";
 
 const pages = [{to: '/index', name: 'Home'}, {to:'/cities', name: 'Cities'}, {to:'/contact', name: 'Contact'}];
-const settings = [{to: '/login', name: 'Log In'},{to:'/signup', name: 'Sign Up'}];
+const settings = [{to: '/login', name: 'Sign In'},{to:'/signup', name: 'Sign Up'}];
 
 const ResponsiveAppBar = () => {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
@@ -127,13 +127,14 @@ const ResponsiveAppBar = () => {
             <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0, }}>
                 <AccountCircleIcon sx={{
-                    width: '2rem',
+                    width: '4rem',
+                    fontSize: '3rem',
                     }} />
               </IconButton>
             </Tooltip>
             <Menu
               sx={{ mt: '45px',
-                 }}
+                }}
               id="menu-appbar"
               anchorEl={anchorElUser}
               anchorOrigin={{
