@@ -2,9 +2,11 @@ const Router = require('express').Router();
 
 const citiesControllers = require('../controllers/citiesControllers');
 const itineraryControllers = require('../controllers/itinerarysControllers');
+const userControllers = require('../controllers/userControllers');
 // const activityControllers = require('../controllers/activityControllers');
 const {getCities, getOneCity, addCity, modifyCity, addMultipleCity, removeCity} = citiesControllers;
 const {getItinerarys, getOneItinerary, addItinerary, modifyItinerary, deleteItinerary, addLike, addHashtag, deleteHashtag, getItinerarysByHashtag,getItinerarysByCity} = itineraryControllers;
+const {signUpUser, signInUser, getUsers} = userControllers;
 // const {getActivities, getOneActivity, addActivity, modifyActivity, deleteActivity, getActivityByCity} = activityControllers;
 
 // Routes for cities
@@ -40,6 +42,17 @@ Router.route('/itinerarys/:id/hashtag')
 
 Router.route('/itinerarys/city/:id')
 .get(getItinerarysByCity)
+
+// Routes for user
+Router.route('/user/signup')
+.post(signUpUser)
+
+Router.route('/user')
+.get(getUsers)
+
+Router.route('/user/signin')
+.post(signInUser)
+
 
 // Routes for activities
 // Router.route('/activities')

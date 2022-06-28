@@ -1,14 +1,15 @@
 import React from "react";
-import SignInForm from '../components/SignInForm';
+import SignUpForm from '../components/SignUpForm';
 import '../styles/styles.css';
 
 
-function LogIn (){
+function SignUp (){
     return (
         <div className="main main-cities">
-            <SignInForm />
+                <SignUpForm />        
         </div> 
 )
+
 }
 
-export default LogIn;
+export default SignUp;

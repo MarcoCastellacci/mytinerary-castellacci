@@ -17,6 +17,16 @@ import Link from '@mui/material/Link';
  
 const pages = [{to: '/index', name: 'Home'}, {to:'/cities', name: 'Cities'}, {to:'/contact', name: 'Contact'}];
 
+function Copyright(props) {
+return (
+    <Typography variant="body2" color="text.secondary" align="center" {...props}>
+        {'Copyright © '} 
+        Marco Castellacci - Cohorte 28 -{' '}
+    {new Date().getFullYear()}
+    {'.'}
+    </Typography>
+    );
+}
 
 function Footer(){
 
@@ -115,19 +125,20 @@ const handleOpenNavMenu = (event) => {
               sx={{
                 display: { xs: 'block', md: 'none' },
                 color: 'black',
+                marginX: '.5rem',
               }}
             >
               {pages.map((page, index) => (
                   <RouterLink key={index} to={page.to} onClick={handleCloseNavMenu}>
                 <MenuItem>
-                  <Typography sx={{textDecoration:'none'}} className='button1' textAlign="center">{page.name}</Typography>
+                  <Typography sx={{textDecoration:'none', marginX: '.5rem'}} className='button1' textAlign="center">{page.name}</Typography>
                 </MenuItem>
                 </RouterLink>
               ))}
             </Menu>
           </Box>
 
-          <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' },}}>
+          <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' },marginX: '.5rem'}}>
             {pages.map((page, index) => (
               <RouterLink key={index} to={page.to} className='button1' onClick={handleCloseNavMenu}>
                 {page.name}
@@ -135,8 +146,8 @@ const handleOpenNavMenu = (event) => {
             ))}
           </Box>
           <Box sx={{ flexGrow: 0, justifyContent: 'center' }}>
-            <Typography variant="h6" className="copyright">
-              ®Copyright - 2022
+            <Typography variant="h6">
+              <Copyright sx={{ color:'whitesmoke', textAlign:'center', marginX: '.5rem'}} />
             </Typography>
           </Box>
         </Toolbar>

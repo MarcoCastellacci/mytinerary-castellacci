@@ -48,7 +48,7 @@ console.log(itinerary)
                 itinerary.map(itinerary => (
             <Itinerarys itinerarys={itinerary} key={itinerary._id} />)):
                 <div>
-                    <h1> No Itinerary Yet </h1>
+                    <h1> No Itineraries Yet </h1>
                 </div>  
             }
             </div>

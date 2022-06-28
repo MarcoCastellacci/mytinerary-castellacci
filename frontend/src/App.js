@@ -18,7 +18,7 @@ import citiesActions from './redux/actions/citiesActions';
 import Cities from './pages/Cities';
 import Contact from './pages/Contact';
 import LogIn from './pages/LogIn';
-import SignUp from './pages/SignIn';
+import SignUp from './pages/SignUp';
 import NonPage from './pages/NonPage';
 import Index from './pages/Index';
 import Details from './pages/Details';

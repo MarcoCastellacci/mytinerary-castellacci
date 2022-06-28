@@ -129,7 +129,7 @@ width: 30%;
 height: auto;
 }
 .logo-footer{
-width: 15%;
+width: 30%;
 height: auto;
 }
 
@@ -203,6 +203,18 @@ height: auto;
 .itinerary {
   margin: 2rem !important;
 }
+/* Sign Up - In */
+.logo-sign{
+  width: 50% !important;
+  height: auto !important;
+}
+
+.gif{
+  width: 58.3% !important;
+  height: auto !important;
+}
+
+
 
 /* Componenetes Botones Externos */
 .arrow-up{
@@ -322,19 +334,20 @@ height: auto;
 }
 /* From uiverse.io by @xXJollyHAKERXx */
 .button1 {
- font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
- font-size: 16px;
- font-weight: 400;
- height: 25px;
- width: 65px;
- border: 0px solid;
- background-image: linear-gradient(45deg,blue,#00f0a0,blue);
- background-size: 500% 400%;
- color: white;
-  text-align: center;
-  text-decoration: none;
+font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+font-size: 16px;
+font-weight: 400;
+height: 25px;
+width: 65px;
+border: 0px solid;
+background-image: linear-gradient(45deg,blue,#00f0a0,blue);
+background-size: 500% 400%;
+color: white;
+text-align: center;
+text-decoration: none;
 border-radius: 50px;
- transition: 0.6s all;
+transition: 0.6s all;
+margin: 0 .5rem !important;
 }
 
 .button1:hover {
@@ -367,7 +380,11 @@ border-radius: 50px;
   flex-grow: 1 !important;
 }
 }
-
+@media (max-width: 920px) {
+  .gif {
+    width: 60% !important;
+  }
+}
 @media (max-width: 780px) {
     .slogan {
         width: 100%;
