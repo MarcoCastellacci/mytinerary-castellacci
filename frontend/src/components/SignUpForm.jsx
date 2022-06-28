@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import '../styles/styles.css';
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
@@ -11,7 +11,7 @@ import Typography from '@mui/material/Typography';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import FormCountry from '../components/FormCountry';
 import userActions from "../redux/actions/userActions";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch} from "react-redux";
 
 function Copyright(props) {
 return (
@@ -42,14 +42,9 @@ const handleSubmit = (event) => {
         from: 'form-signup',
 }
 console.log(user)
-
+dispatch(userActions.signUp(user))
 }
-useEffect(() => {
-    dispatch(userActions.signUp(user))
-// eslint-disable-next-line
-},[])
-const user = useSelector(store => store.userReducer.user);
-console.log(user)
+
 
 
 
@@ -91,10 +86,10 @@ return (
                             <Grid item xs={12} sm={6}>
                                 <TextField
                                 autoComplete="given-name"
-                                name="firstName"
+                                name="name"
                                 required
                                 fullWidth
-                                id="firstName"
+                                id="name"
                                 label="First Name"
                                 autoFocus
                                 size="small"

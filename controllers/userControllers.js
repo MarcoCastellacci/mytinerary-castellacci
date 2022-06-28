@@ -3,7 +3,7 @@ const bcryptjs = require('bcryptjs');
 
 const userControllers = {
     signUpUser: async(req, res) => {
-        const {name,lastName,email,password,image,from,country} = req.body
+        const {name,lastName,email,password,image,from,country} = req.body.user
         const test = req.body.test
         try { 
             const userExist = await User.findOne({email})
@@ -14,54 +14,54 @@ const userControllers = {
                         from: 'signup',
                         message: 'User already exist'})
                 } else {
-                const passwordHash = await bcryptjs.hashSync(password, 10)
+                const passwordHash = bcryptjs.hashSync(password, 1)
                 
                 userExist.from.push(from)
                 userExist.password.push(passwordHash)
                 res.json({
                 success: true,
                 from: 'signup',
-                message: 'User coorectly created with' + from})
+                message: 'User coorectly created with ' + " " + from})
                 }
             } else {
-                const passwordHash = await bcryptjs.hashSync(password, 10)
+                const passwordHash = await bcryptjs.hashSync(password, 1)
                 const newUser = await new User({
-                    name,
-                    lastName,
-                    email,
-                    password: [passwordHash],
-                    uniqueString: crypto.randomtes(15).toString('hex'),
+                    name: name,
+                    lastName: lastName,
+                    email: email,
+                    password: passwordHash,
+                    // uniqueString: crypto.randomtes(15).toString('hex'),
                     emailVerified: false,
-                    image,
+                    image: image,
                     from: [from],
-                    country,
+                    country: country,
                 })
                 if(from !== "form-Signup"){
                     await newUser.save()
                     res.json({
                         success: true,
                         from: 'signup',
-                        message: 'User coorectly created with' + from})
+                        message: 'User coorectly created with' + "" +  from})
                 } else {
                     await newUser.save()
                     res.json({
                         success: true,
                         from: 'signup',
-                        message: 'User coorectly created with' + from + 'Check your email to verify your account'})
+                        message: 'User coorectly created with' + "" + from + "" + 'Check your email to verify your account'})
                 }
             }
         }   catch (error) {
             res.json({
                 console: console.log(error),
                 success: false,
-                message: 'Something went wrong please try again'})
+                message: 'There was an error'})
         }
     },
     signInUser: async(req, res) => {
-        const {email,password, from} = req.body
+        const {email,password, from} = req.body.logedUser
         try {
                 const userExist = await User.findOne({email})
-                const indexpass = userExist.from.indexOf(from)
+                // const indexpass = userExist.from.indexOf(from)
                 if(!userExist){
                     res.json({
                         success: false,
@@ -70,27 +70,32 @@ const userControllers = {
                     if( from !== "form-Signup"){
                         let passwordHash = userExist.password.filter(pass => bcryptjs.compareSync(password, pass))
                         if(passwordHash.length > 0){
+                        
                             const userData={
                                 id: userExist._id,
                                 name: userExist.name,
                                 email: userExist.email,
                                 from:from,
                             }
+
                         await userExist.save()
+                        
                         res.json({
                             success: true,
                             from: from,
                             response: {userData},
-                            message: 'welcome Back' + userData.name,
+                            message: 'welcome Back ' + "" + userData.name,
                             })
                     } else {
                         res.json({
+                        
                             success: false,
-                            from: form,
-                            message: 'Something went wrong please try again',
+                            from: from,
+                            message: 'Try again, password or email is incorrect',
                             })
                     }
                 } else {
+                    let passwordHash = userExist.password.filter(pass => bcryptjs.compareSync(password, pass))
                         if(passwordHash.length > 0){
                             const userData={
                                 id: userExist._id,
@@ -103,12 +108,12 @@ const userControllers = {
                             success: true,
                             from: from,
                             response: {token, userData},
-                            message: 'welcome Back' + userData.name,
+                            message: 'welcome Back' + "" + userData.name,
                             })
                     } else {
                         res.json({
                             success: false,
-                            from: form,
+                            from: from,
                             message: 'User email or password is incorrect',
                             })
                     }
@@ -117,6 +122,7 @@ const userControllers = {
         }
     catch (error) {
                 res.json({
+                    console: console.log(error),
                     success: false,
                     message: 'Something went wrong please try again'})
         }

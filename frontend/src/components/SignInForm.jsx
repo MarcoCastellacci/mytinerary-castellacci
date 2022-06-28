@@ -11,6 +11,8 @@ import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+import { useDispatch } from 'react-redux';
+import userActions from '../redux/actions/userActions';
 
 function Copyright(props) {
 return (
@@ -24,8 +26,10 @@ return (
 }
 
 const theme = createTheme();
-
 export default function LogIn() {
+const dispatch = useDispatch();
+
+
 const handleSubmit = (event) => {
     event.preventDefault();
     console.log(event)
@@ -33,7 +37,7 @@ const handleSubmit = (event) => {
         email: event.target[0].value,
         password: event.target[2].value,
     }   
-
+dispatch(userActions.signIn(logedUser))
 console.log(logedUser)
 };
 
