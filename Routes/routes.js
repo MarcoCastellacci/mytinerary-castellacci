@@ -1,4 +1,5 @@
 const Router = require('express').Router();
+const validator = require('../config/validator');
 
 const citiesControllers = require('../controllers/citiesControllers');
 const itineraryControllers = require('../controllers/itinerarysControllers');
@@ -45,7 +46,7 @@ Router.route('/itinerarys/city/:id')
 
 // Routes for user
 Router.route('/user/signup')
-.post(signUpUser)
+.post(validator, signUpUser)
 
 Router.route('/user')
 .get(getUsers)

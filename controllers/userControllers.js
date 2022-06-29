@@ -14,7 +14,7 @@ const userControllers = {
                         from: 'signup',
                         message: 'User already exist'})
                 } else {
-                const passwordHash = bcryptjs.hashSync(password, 1)
+                const passwordHash = bcryptjs.hashSync(password, 10)
                 
                 userExist.from.push(from)
                 userExist.password.push(passwordHash)
@@ -24,7 +24,7 @@ const userControllers = {
                 message: 'User coorectly created with ' + " " + from})
                 }
             } else {
-                const passwordHash = await bcryptjs.hashSync(password, 1)
+                const passwordHash = bcryptjs.hashSync(password, 10)
                 const newUser = await new User({
                     name: name,
                     lastName: lastName,

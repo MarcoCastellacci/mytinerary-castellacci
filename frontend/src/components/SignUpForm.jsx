@@ -12,6 +12,9 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 import FormCountry from '../components/FormCountry';
 import userActions from "../redux/actions/userActions";
 import { useDispatch} from "react-redux";
+// import { useNavigate } from 'react-router-dom';
+
+
 
 function Copyright(props) {
 return (
@@ -28,25 +31,38 @@ const theme = createTheme();
 
 export default function SignUp() {
 
-const dispatch = useDispatch();
+// const navigate = useNavigate()
+const dispatch = useDispatch()
+
+
 
 const handleSubmit = (event) => {
     event.preventDefault();
-    const user = { 
+    console.log(event)
+    const allInputs = {
         name: event.target[0].value,
         lastName: event.target[2].value,
+        image: event.target[4].value,
         email: event.target[6].value,
         password: event.target[8].value,
-        image: event.target[4].value,
         country: event.target[10].value,
-        from: 'form-signup',
+        from: 'form-signup'
+    }
+
+let res = dispatch(userActions.signUp(allInputs))
+    console.log(res)
+    console.log(allInputs)
+    if (res){
+            try{
+                // navigate('/createUser', {replace:true})
+            } catch (error) {
+                console.log(error)
+            }
+        } else {
+            console.log(res)
+        return allInputs
+        }
 }
-console.log(user)
-dispatch(userActions.signUp(user))
-}
-
-
-
 
 return (
     <ThemeProvider theme={theme}>
@@ -81,7 +97,7 @@ return (
                     <Typography component="h1" variant="h5">
                         Sign Up
                     </Typography>
-                    <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 1 }}>
+                    <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 3 }}>
                         <Grid container spacing={2}>
                             <Grid item xs={12} sm={6}>
                                 <TextField

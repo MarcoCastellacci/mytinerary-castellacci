@@ -7,7 +7,14 @@ const userActions = {
         return async (dispatch, getState) => {
             try {
                 const res = await axios.post(apiUrl + `api/user/signup`, {user})
-            console.log(res);
+            console.log(res)
+            dispatch({type: "MESSAGE",
+                    payload:{ view:true,
+                            message: res.data.message,
+                            success: res.data.success,
+                            }
+                })
+            return res
             } catch (error) {
             console.log(error)
             }
@@ -17,7 +24,13 @@ const userActions = {
         return async (dispatch, getState) => {
             try {
                 const user = await axios.post(apiUrl + `api/user/signin`, {logedUser})
-                console.log(user);
+                dispatch({type: "MESSAGE",
+                    payload:{ view:true,
+                            message: user.data.message,
+                            success: user.data.success,
+                            }
+                })
+            return user
             } catch (error) {
             console.log(error)
             }

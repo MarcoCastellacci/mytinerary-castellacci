@@ -36,6 +36,7 @@ const handleSubmit = (event) => {
     const logedUser = {
         email: event.target[0].value,
         password: event.target[2].value,
+        from: 'form-signup',
     }   
 dispatch(userActions.signIn(logedUser))
 console.log(logedUser)
