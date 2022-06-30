@@ -15,6 +15,9 @@ Desarrollo parte del proceso de aprendizaje del Bootcamp de **Minfhub**
 * Mongoose
 * Postman
 * React-Router-Dom
+* Joi 
+* Google API
+* JWT
 
 ## Componentes de Librerias
 
