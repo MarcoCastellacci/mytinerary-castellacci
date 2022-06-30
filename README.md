@@ -4,7 +4,7 @@
 
 Proyecto de App creada con [create-react-app](https://create-react-app.dev/)
 
-Desarrollo parte del proceso de aprendizaje del Bootcamp de **Minfhub**
+Desarrollo parte del proceso de aprendizaje del Bootcamp de **MindHub**
 
 ## Tecnologias utilizadas y Herramientas utilizadas
 
