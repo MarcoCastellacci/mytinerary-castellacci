@@ -13,6 +13,8 @@ import ArrowCircleUpIcon from '@mui/icons-material/ArrowCircleUp';
 
 import { useDispatch} from 'react-redux';
 import citiesActions from './redux/actions/citiesActions';
+import { Toaster}  from 'react-hot-toast';
+import userActions from './redux/actions/userActions';
 
 
 import Cities from './pages/Cities';
@@ -37,11 +39,19 @@ useEffect(() => {
 const dispatch = useDispatch();
 
 useEffect(() => {
+    if(localStorage.getItem('token') !== null){
+      const token = localStorage.getItem('token');
+      dispatch(userActions.verifyToken(token));
+    }
+})
+
+useEffect(() => {
 dispatch(citiesActions.getCities())
 // eslint-disable-next-line
 },[])
   return (
     <>
+      
       <Navbar />
       <Routes>
         <Route path="/cities" element={<Cities/>} />
@@ -54,6 +64,13 @@ dispatch(citiesActions.getCities())
         <Route path="/index" element={<Index/>} />
         <Route path="*" element={<NonPage/>} />
       </Routes>
+      <Toaster
+      position='bottom-center'
+      autoClose={3000}
+      hideProgressBar={true}
+      newestOnTop={true}
+      transition={'scale'}
+      />
       <Footer />
         <ScrollToTop
         smooth
