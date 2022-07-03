@@ -12,10 +12,12 @@ import MenuItem from '@mui/material/MenuItem';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import Logo from '../img/logo.png';
 import '../styles/styles.css';
-import {Link as RouterLink} from "react-router-dom";
+import { Link as RouterLink } from "react-router-dom";
+import { useSelector } from "react-redux";
+import Avatar from '@mui/material/Avatar';
 
-const pages = [{to: '/index', name: 'Home'}, {to:'/cities', name: 'Cities'}, {to:'/contact', name: 'Contact'}];
-const settings = [{to: '/login', name: 'Sign In'},{to:'/signup', name: 'Sign Up'}];
+const pages = [{ to: '/index', name: 'Home' }, { to: '/cities', name: 'Cities' }, { to: '/contact', name: 'Contact' }];
+const settings = [{ to: '/login', name: 'Sign In' }, { to: '/signup', name: 'Sign Up' }];
 
 const ResponsiveAppBar = () => {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
@@ -36,13 +38,16 @@ const ResponsiveAppBar = () => {
     setAnchorElUser(null);
   };
 
+  const user = useSelector(store => store.userReducer.user);
+  console.log(user);
+
   return (
     <AppBar position="static" sx={{
       backgroundImage: "linear-gradient(to top, #00c6fb 0%, #005bea 100%)",
-}}>
+    }}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
-            <Box
+          <Box
             sx={{
               mr: 2,
               display: { xs: 'none', md: 'flex' },
@@ -55,7 +60,7 @@ const ResponsiveAppBar = () => {
               marginRight: '0',
             }}
           >
-          <img src={Logo} alt="Logo" className="logo"/>
+            <img src={Logo} alt="Logo" className="logo" />
           </Box>
 
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
@@ -89,15 +94,15 @@ const ResponsiveAppBar = () => {
               }}
             >
               {pages.map((page, index) => (
-                  <RouterLink key={index} to={page.to} onClick={handleCloseNavMenu}>
-                <MenuItem>
-                  <Typography sx={{textDecoration:'none'}} className='button1' textAlign="center">{page.name}</Typography>
-                </MenuItem>
+                <RouterLink key={index} to={page.to} onClick={handleCloseNavMenu}>
+                  <MenuItem>
+                    <Typography sx={{ textDecoration: 'none' }} className='button1' textAlign="center">{page.name}</Typography>
+                  </MenuItem>
                 </RouterLink>
               ))}
             </Menu>
           </Box>
-          
+
           <Box
             sx={{
               mr: 2,
@@ -109,13 +114,13 @@ const ResponsiveAppBar = () => {
               color: 'inherit',
               textDecoration: 'none',
               width: '100%',
-              zIndex: '0', 
-              justifyContent: 'center',             
+              zIndex: '0',
+              justifyContent: 'center',
             }}
           >
             <img src={Logo} alt="logo" className="logo" />
           </Box>
-          <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' },}}>
+          <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' }, }}>
             {pages.map((page, index) => (
               <RouterLink key={index} to={page.to} className='button1' onClick={handleCloseNavMenu}>
                 {page.name}
@@ -126,15 +131,20 @@ const ResponsiveAppBar = () => {
           <Box sx={{ flexGrow: 0, justifyContent: 'center' }}>
             <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0, }}>
-                <AccountCircleIcon sx={{
-                    width: '4rem',
-                    fontSize: '3rem',
-                    }} />
+                {user ? <Avatar
+                            alt="User Image"
+                            src={user.image}
+                            sx={{ width: 56, height: 56 }}
+                            /> : <AccountCircleIcon sx={{
+                                  width: '4rem',
+                                  fontSize: '3rem',
+                                  }} />}
               </IconButton>
             </Tooltip>
             <Menu
-              sx={{ mt: '45px',
-                }}
+              sx={{
+                mt: '45px',
+              }}
               id="menu-appbar"
               anchorEl={anchorElUser}
               anchorOrigin={{
@@ -151,10 +161,11 @@ const ResponsiveAppBar = () => {
             >
               {settings.map((setting, index) => (
                 <RouterLink key={index} to={setting.to} onClick={handleCloseUserMenu}>
-                <MenuItem sx={{textDecoration:'none',}}>
-                  <Typography sx={{
-                                  color: 'black'}} textAlign="center">{setting.name}</Typography>
-                </MenuItem>
+                  <MenuItem sx={{ textDecoration: 'none', }}>
+                    <Typography sx={{
+                      color: 'black'
+                    }} textAlign="center">{setting.name}</Typography>
+                  </MenuItem>
                 </RouterLink>
               ))}
             </Menu>

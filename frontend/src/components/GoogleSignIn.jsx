@@ -4,7 +4,7 @@ import {useDispatch} from 'react-redux';
 import userActions from '../redux/actions/userActions';
 
 
-function GoogleSignUp(props) {
+function GoogleSignIn(props) {
     console.log(props)
     const dispatch = useDispatch();
 
@@ -12,14 +12,11 @@ function GoogleSignUp(props) {
     async function handleCallbackResponse(response) {
         const userObject = jwt_decode(response.credential)
         console.log(userObject);
-        dispatch(userActions.signUp({
-                name: userObject.given_name,
-                lastName: userObject.family_name,
-                image: userObject.picture,
+        dispatch(userActions.signIn({
                 email: userObject.email,
                 password: userObject.sub,
-                country: props.country,
-                from: 'google'
+                image: userObject.picture,
+                from: 'google',
                 }
             ))
 }
@@ -32,7 +29,7 @@ function GoogleSignUp(props) {
         });
         google.accounts.id.renderButton(
             document.getElementById('googleButton'),
-            { theme: "otuline", size: "standard", locale:'en', width: '50%'}
+            { theme: "otuline", size: "standard", locale:'en', width: '50%' }
             )
      // eslint-disable-next-line
     },[])
@@ -46,4 +43,4 @@ function GoogleSignUp(props) {
     )
 }
 
-export default GoogleSignUp;
+export default GoogleSignIn;

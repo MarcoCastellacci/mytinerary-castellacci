@@ -13,6 +13,7 @@ import userActions from "../redux/actions/userActions";
 import { useDispatch } from "react-redux";
 import GoogleSignUp from '../components/GoogleSignUp';
 import Swal from 'sweetalert2';
+import toast from 'react-hot-toast'
 
 // import { useNavigate } from 'react-router-dom';
 
@@ -37,22 +38,7 @@ export default function SignUp() {
     const [selectCountry, setSelectCountry] = React.useState('');
     const dispatch = useDispatch()
 
-    const handleSubmit = (event) => {
-        event.preventDefault();
-        const userData = {
-            name: event.target[0].value,
-            lastName: event.target[2].value,
-            image: event.target[4].value,
-            email: event.target[6].value,
-            password: event.target[8].value,
-            country: selectCountry,
-            from: 'form-signup'
-        }
-        dispatch(userActions.signUp(userData))
-        console.log(userData)
-    }
-
-Swal.fire({
+        Swal.fire({
         title: 'Please Select your country',
         input: 'select',
         inputOptions: {
@@ -95,9 +81,42 @@ Swal.fire({
     }).then((result) => {
         if (result.value) {
             Swal.close()
-    }
-})
+        }
+    })
 
+    const handleSubmit = async(event) => {
+        event.preventDefault();
+        const userData = {
+            name: event.target[0].value,
+            lastName: event.target[2].value,
+            image: event.target[4].value,
+            email: event.target[6].value,
+            password: event.target[8].value,
+            country: selectCountry,
+            from: 'form-signup'
+        }
+    dispatch(userActions.signUp(userData))
+        console.log(userData)
+    const res = await dispatch(userActions.signUp(userData))
+        
+    const errormsg = res.data.message
+    console.log(errormsg)
+    if (res.data.from === "validator") {
+
+        errormsg.forEach(e => {
+            toast.error(e.message)
+        })
+
+
+    }
+    if (res.data.from === "signup") {
+        if (res.data.success) {
+            toast.success(res.data.message)
+        } else {
+            toast.error(res.data.message)
+        }
+    }
+};
     return (
         <ThemeProvider theme={theme}>
             <Grid container component="main" >
@@ -195,7 +214,7 @@ Swal.fire({
                                 type="submit"
                                 fullWidth
                                 variant="contained"
-                                sx={{ mt: 3, mb: 2 }}
+                                sx={{ mt: 3, mb: 2, marginY: '1rem' }}
                             >
                                 Sign Up
                             </Button>

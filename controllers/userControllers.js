@@ -19,6 +19,7 @@ const userControllers = {
                 } else {
                 const passwordHash = bcryptjs.hashSync(password, 10)
                 userExist.verification = true
+                userExist.image = image
                 userExist.from.push(from)
                 userExist.password.push(passwordHash)
                 await userExist.save()
@@ -79,6 +80,7 @@ const userControllers = {
                                 id: userExist._id,
                                 name: userExist.name,
                                 email: userExist.email,
+                                image: userExist.image,
                                 from:from,
                             }
                         const token = await jwt.sign({...userData}, process.env.SECRET_KEY, {expiresIn: 60*60*24})
@@ -104,6 +106,7 @@ const userControllers = {
                                 id: userExist._id,
                                 name: userExist.name,
                                 email: userExist.email,
+                                image: userExist.image,
                                 from:from,
                             }
                         await userExist.save()
@@ -165,6 +168,7 @@ const userControllers = {
                         id: req.user._id,
                         name: req.user.name,
                         email: req.user.email,
+                        image: req.user.image,
                         from:"token",
                         }
                     })    

@@ -1,8 +1,8 @@
 const joi = require('joi');
 
-const validator = (res, req, next) => {
+const validator = (req, res, next) => {
     const schema = joi.object({
-        mail: joi.string()
+        email: joi.string()
             .email({minDomainSegments:2})
             .required()
             .messages({
@@ -10,11 +10,12 @@ const validator = (res, req, next) => {
         password: joi.string()
             .min(8)
             .max(20)
-            .pattern(new RegExp('^[a-zA-Z0-9]{8,20}$'))
+            .pattern(new RegExp('^[a-zA-Z0-9]'))
             .message({
                 'string.min': 'Password must be at least 8 characters',
                 'string.max': 'Password must be at most 20 characters',
-            }),
+            })
+            .required(),
             from: joi.string()
             .required(),
             name: joi.string()
@@ -22,9 +23,9 @@ const validator = (res, req, next) => {
             lastName: joi.string()
             .required(),
             image: joi.string()
-            .required(),
+            ,
             country: joi.string()
-            .required(),
+            ,
 
 }) 
 const validation = schema.validate(req.body, {abortEarly:false})
