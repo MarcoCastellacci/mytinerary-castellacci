@@ -8,6 +8,8 @@ const userSchema = new mongoose.Schema({
     image: {type: String, required: true},
     from: {type: Array},
     country: {type: String, required: true},
+    verification: {type: Boolean, default: false},
+    uniquestring: {type: String, required: true},
 })
 
 const User = mongoose.model('User', userSchema);

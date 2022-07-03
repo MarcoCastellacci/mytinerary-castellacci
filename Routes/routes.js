@@ -1,5 +1,6 @@
 const Router = require('express').Router();
 const validator = require('../config/validator');
+const passport = require('../config/passport');
 
 const citiesControllers = require('../controllers/citiesControllers');
 const itineraryControllers = require('../controllers/itinerarysControllers');
@@ -7,7 +8,7 @@ const userControllers = require('../controllers/userControllers');
 // const activityControllers = require('../controllers/activityControllers');
 const {getCities, getOneCity, addCity, modifyCity, addMultipleCity, removeCity} = citiesControllers;
 const {getItinerarys, getOneItinerary, addItinerary, modifyItinerary, deleteItinerary, addLike, addHashtag, deleteHashtag, getItinerarysByHashtag,getItinerarysByCity} = itineraryControllers;
-const {signUpUser, signInUser, getUsers} = userControllers;
+const {signUpUser, signInUser, getUsers, verifyMail, verifyToken} = userControllers;
 // const {getActivities, getOneActivity, addActivity, modifyActivity, deleteActivity, getActivityByCity} = activityControllers;
 
 // Routes for cities
@@ -54,6 +55,11 @@ Router.route('/user')
 Router.route('/user/signin')
 .post(signInUser)
 
+Router.route('/user/verify/:string')
+.get(verifyMail)
+
+Router.route('/user/signintoken')
+.get(passport.authenticate('jwt', { session: false }), verifyToken)
 
 // Routes for activities
 // Router.route('/activities')

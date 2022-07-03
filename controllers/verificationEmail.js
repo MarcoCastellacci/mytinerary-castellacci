@@ -5,8 +5,8 @@ const OAuth2 = google.auth.OAuth2;
 const sendVerification = async (email, string) => {
 
     const myOAuth2Client = new OAuth2(
-            process.env.CLIENT_ID,
-            process.env.SECRET_CLIENT,
+            process.env.GOOGLE_CLIENTID_MAIL,
+            process.env.GOOGLE_SECRET_CLIENT,
             "https://developers.google.com/oauthplayground"
     )
     
@@ -20,8 +20,8 @@ const sendVerification = async (email, string) => {
             auth: {
                 user: process.env.USER,
                 type: 'OAuth2',
-                clientId: process.env.CLIENT_ID,
-                clientSecret: process.env.SECRET_CLIENT,
+                clientId: process.env.GOOGLE_CLIENTID_MAIL,
+                clientSecret: process.env.GOOGLE_SECRET_CLIENT,
                 refreshToken: process.env.REFRESH_TOKEN,
                 accessToken: accessToken
             },      
@@ -36,7 +36,7 @@ const sendVerification = async (email, string) => {
         subject: 'Verify your email',
         html: ` 
                 <div>
-                    <img src="../frontend/src/img/mytinerary.png" alt="logo" style="width:100%;">
+                    <img src="https://www.canva.com/design/DAFFTxyXTsw/y6dq-fKKwxhx4ipSw9KXhw/edit?utm_content=DAFFTxyXTsw&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton" alt="logo" style="width:100%;">
                 </div>
                 <h1>Welcome to MyTinerary</h1>
                 <p>Please click on the link below to verify your email</p>

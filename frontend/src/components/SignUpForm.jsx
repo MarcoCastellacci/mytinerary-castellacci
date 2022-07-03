@@ -78,9 +78,10 @@ Swal.fire({
         inputAttributes: {
             name: 'select-country'
         },
-        showCancelButton: true,
-        preConfirm: (value) => {
-            setSelectCountry(value)
+        showCancelButton: false,
+        allowOutsideClick: false,
+        preConfirm: (country) => {
+            setSelectCountry(country)
         },
         inputValidator: (value) => {
             return new Promise((resolve) => {
