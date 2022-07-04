@@ -29,8 +29,6 @@ const errormsg = res.data.message
         errormsg.forEach(e => {
             toast.error(e.message)
         })
-
-
     }
     if (res.data.from === "signup") {
         if (res.data.success) {

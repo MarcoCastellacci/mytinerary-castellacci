@@ -106,10 +106,10 @@ const errormsg = res.data.message
             toast.error(e.message)
         })
     }
-    if (res.data.from === "signup") {
+    if (res.data.from === "form-signup") {
         if (res.data.success) {
             toast.success(res.data.message)
-        navigate('/signin')
+            navigate('/signin')
         } else {
             toast.error(res.data.message)
         }
