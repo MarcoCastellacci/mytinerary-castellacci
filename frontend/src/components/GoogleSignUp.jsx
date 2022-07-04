@@ -3,10 +3,11 @@ import jwt_decode from 'jwt-decode';
 import {useDispatch} from 'react-redux';
 import userActions from '../redux/actions/userActions';
 import toast from 'react-hot-toast'
-
+import { useNavigate } from 'react-router-dom';
 
 function GoogleSignUp(props) {
     console.log(props)
+    const navigate = useNavigate()
     const dispatch = useDispatch();
     async function handleCallbackResponse(response) {
         const userObject = jwt_decode(response.credential)
@@ -34,6 +35,7 @@ const errormsg = res.data.message
     if (res.data.from === "signup") {
         if (res.data.success) {
             toast.success(res.data.message)
+            navigate('/signin')
         } else {
             toast.error(res.data.message)
         }

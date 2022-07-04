@@ -15,9 +15,7 @@ import GoogleSignUp from '../components/GoogleSignUp';
 import Swal from 'sweetalert2';
 import toast from 'react-hot-toast'
 import { Link as RouterLink } from "react-router-dom";
-
-
-// import { useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 
 
@@ -37,6 +35,7 @@ const theme = createTheme();
 
 export default function SignUp() {
 
+    const navigate = useNavigate()
     const [selectCountry, setSelectCountry] = React.useState();
     const dispatch = useDispatch()
 
@@ -110,6 +109,7 @@ const errormsg = res.data.message
     if (res.data.from === "signup") {
         if (res.data.success) {
             toast.success(res.data.message)
+        navigate('/signin')
         } else {
             toast.error(res.data.message)
         }

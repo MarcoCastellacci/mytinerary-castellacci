@@ -55,11 +55,11 @@ dispatch(citiesActions.getCities())
       
       <Navbar />
       <Routes>
-        {user && <Route path="/user" element={<UserPage />} />}
+        <Route path="/user" element={<UserPage />} />
         <Route path="/cities" element={<Cities/>} />
         <Route path="/cities/city/:id" element={<Details/>} />
         <Route path="/cities/city/:id" element={<Itinerary/>} />
-        {!user && <Route path="/login" element={<LogIn/>} />}
+        {!user && <Route path="/signin" element={<LogIn/>} />}
         {!user && <Route path="/signup" element={<SignUp/>} />}  
         <Route path="/" element={<Index/>} />
         <Route path="/index" element={<Index/>} />

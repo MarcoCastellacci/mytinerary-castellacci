@@ -24,12 +24,15 @@ const ExpandMore = styled((props) => {
 }));
 
 export default function UserProfile(props) {
+
     const [expanded, setExpanded] = React.useState(false);
     const handleExpandClick = () => {
         setExpanded(!expanded);
     };
 
     return (
+        <>  
+        {props.user ?
         <Card sx={{ width: '70vw', bgcolor: 'rgba(0, 0, 0, 0.651)', marginY: '5rem'}}>
             <CardHeader sx={{ color: 'whiteSmoke'}}
                 avatar={
@@ -51,9 +54,7 @@ export default function UserProfile(props) {
                 </Typography>
             </CardContent>
             <CardActions disableSpacing>
-                <IconButton aria-label="add to favorites">
                     <SignOut />
-                </IconButton>
                 <ExpandMore
                     color="primary"
                     expand={expanded}
@@ -73,5 +74,16 @@ export default function UserProfile(props) {
                 </CardContent>
             </Collapse>
         </Card>
+        : 
+                <CardContent sx={{height:'100vh'}}>
+                    <Typography variant='h3' sx={{color: 'whitesmoke', bgcolor: 'rgba(0, 0, 0, 0.651)', width:'80vw', textAlign:'center', borderRadius:'20px', marginTop:'5rem'}}>
+                        You need to sign in to see your profile.
+                    </Typography>
+                    
+
+                </CardContent>
+        }
+        
+    </>
     );
 }
