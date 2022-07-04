@@ -12,16 +12,19 @@ import MenuItem from '@mui/material/MenuItem';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import Logo from '../img/logo.png';
 import '../styles/styles.css';
-import { Link as RouterLink } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { Link as RouterLink, useNavigate } from "react-router-dom";
+import { useSelector, useDispatch} from "react-redux";
 import Avatar from '@mui/material/Avatar';
+import userActions from '../redux/actions/userActions';
 
-const pages = [{ to: '/index', name: 'Home' }, { to: '/cities', name: 'Cities' }, { to: '/contact', name: 'Contact' }];
+const pages = [{ to: '/index', name: 'Home' }, { to: '/cities', name: 'Cities' }, { to: '/user', name: 'Profile' }];
 const settings = [{ to: '/login', name: 'Sign In' }, { to: '/signup', name: 'Sign Up' }];
 
 const ResponsiveAppBar = () => {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
@@ -38,9 +41,11 @@ const ResponsiveAppBar = () => {
     setAnchorElUser(null);
   };
 
-  const user = useSelector(store => store.userReducer.user);
-  console.log(user);
-
+const user = useSelector(store => store.userReducer.user);
+function signOut() {
+        dispatch(userActions.SignOutUser())
+        navigate('/')
+    }
   return (
     <AppBar position="static" sx={{
       backgroundImage: "linear-gradient(to top, #00c6fb 0%, #005bea 100%)",
@@ -159,15 +164,17 @@ const ResponsiveAppBar = () => {
               open={Boolean(anchorElUser)}
               onClose={handleCloseUserMenu}
             >
-              {settings.map((setting, index) => (
+            {user ? <Typography onClick={signOut}>Sign Out</Typography> :
+              settings.map((setting, index) => (
                 <RouterLink key={index} to={setting.to} onClick={handleCloseUserMenu}>
                   <MenuItem sx={{ textDecoration: 'none', }}>
                     <Typography sx={{
                       color: 'black'
                     }} textAlign="center">{setting.name}</Typography>
                   </MenuItem>
-                </RouterLink>
-              ))}
+                </RouterLink>)) 
+                      
+                    }
             </Menu>
           </Box>
         </Toolbar>

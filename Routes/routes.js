@@ -8,7 +8,7 @@ const userControllers = require('../controllers/userControllers');
 // const activityControllers = require('../controllers/activityControllers');
 const {getCities, getOneCity, addCity, modifyCity, addMultipleCity, removeCity} = citiesControllers;
 const {getItinerarys, getOneItinerary, addItinerary, modifyItinerary, deleteItinerary, addLike, addHashtag, deleteHashtag, getItinerarysByHashtag,getItinerarysByCity} = itineraryControllers;
-const {signUpUser, signInUser, getUsers, verifyMail, verifyToken} = userControllers;
+const {signUpUser, signInUser, getUsers, verifyMail, verifyToken, signOut} = userControllers;
 // const {getActivities, getOneActivity, addActivity, modifyActivity, deleteActivity, getActivityByCity} = activityControllers;
 
 // Routes for cities
@@ -54,6 +54,9 @@ Router.route('/user')
 
 Router.route('/user/signin')
 .post(signInUser)
+
+Router.route('/user/signout')
+.post(signOut)
 
 Router.route('/user/verify/:string')
 .get(verifyMail)

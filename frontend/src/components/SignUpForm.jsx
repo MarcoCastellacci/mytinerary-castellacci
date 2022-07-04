@@ -14,6 +14,8 @@ import { useDispatch } from "react-redux";
 import GoogleSignUp from '../components/GoogleSignUp';
 import Swal from 'sweetalert2';
 import toast from 'react-hot-toast'
+import { Link as RouterLink } from "react-router-dom";
+
 
 // import { useNavigate } from 'react-router-dom';
 
@@ -35,7 +37,7 @@ const theme = createTheme();
 
 export default function SignUp() {
 
-    const [selectCountry, setSelectCountry] = React.useState('');
+    const [selectCountry, setSelectCountry] = React.useState();
     const dispatch = useDispatch()
 
         Swal.fire({
@@ -84,7 +86,7 @@ export default function SignUp() {
         }
     })
 
-    const handleSubmit = async(event) => {
+    const handleSubmit = async (event) => {
         event.preventDefault();
         const userData = {
             name: event.target[0].value,
@@ -95,19 +97,15 @@ export default function SignUp() {
             country: selectCountry,
             from: 'form-signup'
         }
-    dispatch(userActions.signUp(userData))
-        console.log(userData)
-    const res = await dispatch(userActions.signUp(userData))
-        
-    const errormsg = res.data.message
+
+const res = await dispatch(userActions.signUp(userData))
+console.log(res)
+const errormsg = res.data.message
     console.log(errormsg)
     if (res.data.from === "validator") {
-
         errormsg.forEach(e => {
             toast.error(e.message)
         })
-
-
     }
     if (res.data.from === "signup") {
         if (res.data.success) {
@@ -117,6 +115,8 @@ export default function SignUp() {
         }
     }
 };
+
+
     return (
         <ThemeProvider theme={theme}>
             <Grid container component="main" >
@@ -220,6 +220,11 @@ export default function SignUp() {
                             </Button>
                             <GoogleSignUp country={selectCountry} />
                             <Copyright sx={{ mt: 5 }} />
+                            <Grid item sx={{ marginY: '1rem' }}>
+                                    <RouterLink to="/signin" style={{ textDecoration: 'none', color: 'blue' }}>
+                                        {"Already have an account? Please Sign In"}
+                                    </RouterLink>
+                                </Grid>
                         </Box>
                     </Box>
                 </Grid>

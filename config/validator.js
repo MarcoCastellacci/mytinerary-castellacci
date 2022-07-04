@@ -9,7 +9,7 @@ const validator = (req, res, next) => {
                 'string.email': 'Email is not valid'}),
         password: joi.string()
             .min(8)
-            .max(20)
+            .max(50)
             .pattern(new RegExp('^[a-zA-Z0-9]'))
             .message({
                 'string.min': 'Password must be at least 8 characters',
@@ -22,10 +22,8 @@ const validator = (req, res, next) => {
             .required(),
             lastName: joi.string()
             .required(),
-            image: joi.string()
-            ,
-            country: joi.string()
-            ,
+            image: joi.string(),
+            country: joi.string(),
 
 }) 
 const validation = schema.validate(req.body, {abortEarly:false})

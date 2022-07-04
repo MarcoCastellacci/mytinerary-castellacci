@@ -12,8 +12,9 @@ import Typography from '@mui/material/Typography';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { useDispatch} from 'react-redux';
 import userActions from '../redux/actions/userActions';
-import { Link as RouterLink} from "react-router-dom";
+import { Link as RouterLink, useNavigate} from "react-router-dom";
 import GoogleSignIn from './GoogleSignIn';
+import toast from 'react-hot-toast';
 
 
 function Copyright(props) {
@@ -30,8 +31,7 @@ function Copyright(props) {
 const theme = createTheme();
 export default function LogIn() {
     const dispatch = useDispatch();
-    
-
+    const navigate = useNavigate();
     const handleSubmit = async (event) => {
         event.preventDefault();
         const logedUser = {
@@ -39,10 +39,17 @@ export default function LogIn() {
             password: event.target[2].value,
             from: 'form-signup',
         }
-        dispatch(userActions.signIn(logedUser))
-    };
-
-
+    const res = await dispatch(userActions.signIn(logedUser))
+        console.log(res)
+    if (res.data.from === "signup") {
+        if (res.data.success) {
+            toast.success(res.data.message)
+            navigate('/user');
+        } else {
+            toast.error(res.data.message)
+        }
+    }
+}
     return (
         <ThemeProvider theme={theme}>
             <Grid container component="main" >
@@ -84,7 +91,6 @@ export default function LogIn() {
                                 label="Email Address"
                                 name="email"
                                 autoComplete="email"
-                                autoFocus
                                 size="small"
                             />
                             <TextField
@@ -111,7 +117,7 @@ export default function LogIn() {
                                 Sign In
                             </Button>
                             <Grid container>
-                                <Grid item sx={{ marginY: '1rem' }}>
+                                <Grid item sx={{ marginY: '1rem', marginX:'2rem' }}>
                                     <RouterLink to="/signup" style={{ textDecoration: 'none', color: 'blue' }}>
                                         {"Don't have an account? Sign Up"}
                                     </RouterLink>
@@ -126,5 +132,5 @@ export default function LogIn() {
                 </Grid>
             </Grid>
         </ThemeProvider>
-    );
+    )
 }

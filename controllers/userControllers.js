@@ -25,7 +25,7 @@ const userControllers = {
                 await userExist.save()
                 res.json({
                 success: true,
-                from: from,
+                from: 'signup',
                 message: 'User coorectly created with ' + " " + from})
                 }
             } else {
@@ -52,7 +52,7 @@ const userControllers = {
                     await sendVerification(email, uniquestring)
                     res.json({
                         success: true,
-                        from: 'signup',
+                        from: 'form-signup',
                         message: 'User coorectly created with ' + "" + from + "" + ' Check your email to verify your account'})
                 }
             }
@@ -67,7 +67,6 @@ const userControllers = {
         const {email,password, from} = req.body.logedUser
         try {
                 const userExist = await User.findOne({email})
-                // const indexpass = userExist.from.indexOf(from)
                 if(!userExist){
                     res.json({
                         success: false,
@@ -93,7 +92,6 @@ const userControllers = {
                             })
                     } else {
                         res.json({
-                        
                             success: false,
                             from: from,
                             message: 'Try again, password or email is incorrect',
@@ -110,6 +108,7 @@ const userControllers = {
                                 from:from,
                             }
                         await userExist.save()
+                        const token = await jwt.sign({...userData}, process.env.SECRET_KEY, {expiresIn: 60*60*24})
                         res.json({
                             success: true,
                             from: from,
@@ -132,6 +131,14 @@ const userControllers = {
                     success: false,
                     message: 'Something went wrong please try again'})
         }
+    },
+    signOut: async(req, res) => {
+        const email = req.body.email
+        const user = await User.findOne({email})
+        await user
+        res.json({
+            success: true,
+            message: email +' Sign out!'})
     },
     getUsers: async(req, res) => {
         let users

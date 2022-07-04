@@ -11,20 +11,20 @@ import Footer from './components/Footer';
 import ScrollToTop from "react-scroll-to-top";
 import ArrowCircleUpIcon from '@mui/icons-material/ArrowCircleUp';
 
-import { useDispatch} from 'react-redux';
+import { useDispatch, useSelector} from 'react-redux';
 import citiesActions from './redux/actions/citiesActions';
 import { Toaster}  from 'react-hot-toast';
 import userActions from './redux/actions/userActions';
 
 
 import Cities from './pages/Cities';
-import Contact from './pages/Contact';
 import LogIn from './pages/LogIn';
 import SignUp from './pages/SignUp';
 import NonPage from './pages/NonPage';
 import Index from './pages/Index';
 import Details from './pages/Details';
 import Itinerary from './components/Itinerarys';
+import UserPage from './pages/UserPage';
 
 
 
@@ -45,6 +45,7 @@ useEffect(() => {
     }
 })
 
+const user = useSelector(store => store.userReducer.user);
 useEffect(() => {
 dispatch(citiesActions.getCities())
 // eslint-disable-next-line
@@ -54,12 +55,12 @@ dispatch(citiesActions.getCities())
       
       <Navbar />
       <Routes>
+        {user && <Route path="/user" element={<UserPage />} />}
         <Route path="/cities" element={<Cities/>} />
         <Route path="/cities/city/:id" element={<Details/>} />
-        <Route path="/cities/city/:id" element={<Itinerary/>} />        
-        <Route path="/contact" element={<Contact/>} />
-        <Route path="/login" element={<LogIn/>} />
-        <Route path="/signup" element={<SignUp/>} />  
+        <Route path="/cities/city/:id" element={<Itinerary/>} />
+        {!user && <Route path="/login" element={<LogIn/>} />}
+        {!user && <Route path="/signup" element={<SignUp/>} />}  
         <Route path="/" element={<Index/>} />
         <Route path="/index" element={<Index/>} />
         <Route path="*" element={<NonPage/>} />

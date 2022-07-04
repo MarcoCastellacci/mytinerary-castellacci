@@ -2,17 +2,16 @@ import React, {useEffect} from 'react';
 import jwt_decode from 'jwt-decode';
 import {useDispatch} from 'react-redux';
 import userActions from '../redux/actions/userActions';
+import toast from 'react-hot-toast'
 
 
 function GoogleSignUp(props) {
     console.log(props)
     const dispatch = useDispatch();
-
-
     async function handleCallbackResponse(response) {
         const userObject = jwt_decode(response.credential)
         console.log(userObject);
-        dispatch(userActions.signUp({
+    const res = await dispatch(userActions.signUp({
                 name: userObject.given_name,
                 lastName: userObject.family_name,
                 image: userObject.picture,
@@ -21,7 +20,24 @@ function GoogleSignUp(props) {
                 country: props.country,
                 from: 'google'
                 }
-            ))
+            ))   
+const errormsg = res.data.message
+    console.log(errormsg)
+    if (res.data.from === "validator") {
+
+        errormsg.forEach(e => {
+            toast.error(e.message)
+        })
+
+
+    }
+    if (res.data.from === "signup") {
+        if (res.data.success) {
+            toast.success(res.data.message)
+        } else {
+            toast.error(res.data.message)
+        }
+    }
 }
 
     useEffect(() => {
