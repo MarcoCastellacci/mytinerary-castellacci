@@ -5,11 +5,11 @@ const passport = require('../config/passport');
 const citiesControllers = require('../controllers/citiesControllers');
 const itineraryControllers = require('../controllers/itinerarysControllers');
 const userControllers = require('../controllers/userControllers');
-// const activityControllers = require('../controllers/activityControllers');
+const activitiesControllers = require('../controllers/activitiesControllers');
 const {getCities, getOneCity, addCity, modifyCity, addMultipleCity, removeCity} = citiesControllers;
-const {getItinerarys, getOneItinerary, addItinerary, modifyItinerary, deleteItinerary, addLike, addHashtag, deleteHashtag, getItinerarysByHashtag,getItinerarysByCity} = itineraryControllers;
+const {getItinerarys, getOneItinerary, addItinerary, modifyItinerary, deleteItinerary, addLike,getItinerarysByCity} = itineraryControllers;
 const {signUpUser, signInUser, getUsers, verifyMail, verifyToken, signOut} = userControllers;
-// const {getActivities, getOneActivity, addActivity, modifyActivity, deleteActivity, getActivityByCity} = activityControllers;
+const {getActivities, getOneActivity, comentActivity} = activitiesControllers;
 
 // Routes for cities
 Router.route('/cities')
@@ -37,10 +37,6 @@ Router.route('/itinerarys/:id')
 Router.route('/itinerarys/:id/like')
 .post(addLike)
 
-Router.route('/itinerarys/:id/hashtag')
-.post(addHashtag)
-.delete(deleteHashtag)
-.get(getItinerarysByHashtag)
 
 Router.route('/itinerarys/city/:id')
 .get(getItinerarysByCity)
@@ -65,16 +61,13 @@ Router.route('/user/signintoken')
 .get(passport.authenticate('jwt', { session: false }), verifyToken)
 
 // Routes for activities
-// Router.route('/activities')
-// .get(getActivities)
-// .post(addActivity)
 
-// Router.route('/activities/:id')
-// .get(getOneActivity)
-// .put(modifyActivity)
-// .delete(deleteActivity)
+Router.route('/activities')
+.get(getActivities)
 
-// Router.route('/activities/city/:id')
-// .get(getActivityByCity)
+
+Router.route('/activities/:id')
+.get(getOneActivity)
+.put(comentActivity)
 
 module.exports = Router;

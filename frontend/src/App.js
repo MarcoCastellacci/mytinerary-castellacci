@@ -59,8 +59,8 @@ dispatch(citiesActions.getCities())
         <Route path="/cities" element={<Cities/>} />
         <Route path="/cities/city/:id" element={<Details/>} />
         <Route path="/cities/city/:id" element={<Itinerary/>} />
-        {!user && <Route path="/signin" element={<LogIn/>} />}
-        {!user && <Route path="/signup" element={<SignUp/>} />}  
+        {<Route path="/signin" element={user ? <UserPage /> : <LogIn/>} />}
+        {<Route path="/signup" element={user ? <UserPage /> : <SignUp/>} />}  
         <Route path="/" element={<Index/>} />
         <Route path="/index" element={<Index/>} />
         <Route path="*" element={<NonPage/>} />

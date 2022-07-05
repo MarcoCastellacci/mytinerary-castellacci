@@ -70,6 +70,12 @@ const userActions = {
                         }
                     })
             }
+        },
+        getLikes: (id) => {
+            return async (dispatch, getState) => {
+                const res = await axios.get(apiUrl + `api/user/likes/${id}`)
+                dispatch({type: "GET_LIKES", payload: res.data.response.likes})
+            }
         }
 }
 

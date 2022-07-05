@@ -18,7 +18,7 @@ import Avatar from '@mui/material/Avatar';
 import userActions from '../redux/actions/userActions';
 
 const pages = [{ to: '/index', name: 'Home' }, { to: '/cities', name: 'Cities' }, { to: '/user', name: 'Profile' }];
-const settings = [{ to: '/login', name: 'Sign In' }, { to: '/signup', name: 'Sign Up' }];
+const settings = [{ to: '/signin', name: 'Sign In' }, { to: '/signup', name: 'Sign Up' }];
 
 const ResponsiveAppBar = () => {
   const [anchorElNav, setAnchorElNav] = React.useState(null);

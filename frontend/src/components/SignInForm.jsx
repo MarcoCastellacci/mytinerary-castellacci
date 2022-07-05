@@ -10,11 +10,12 @@ import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-import { useDispatch} from 'react-redux';
+import { useDispatch, useSelector} from 'react-redux';
 import userActions from '../redux/actions/userActions';
 import { Link as RouterLink, useNavigate} from "react-router-dom";
 import GoogleSignIn from './GoogleSignIn';
 import toast from 'react-hot-toast';
+
 
 
 function Copyright(props) {
@@ -32,6 +33,8 @@ const theme = createTheme();
 export default function LogIn() {
     const dispatch = useDispatch();
     const navigate = useNavigate();
+
+const res = useSelector(store => store.userReducer.user);
     const handleSubmit = async (event) => {
         event.preventDefault();
         const logedUser = {
@@ -39,12 +42,12 @@ export default function LogIn() {
             password: event.target[2].value,
             from: 'form-signup',
         }
-    const res = await dispatch(userActions.signIn(logedUser))
-        console.log(res)
+await dispatch(userActions.signIn(logedUser))
+        
     if (res.data.from === "signup") {
         if (res.data.success) {
             toast.success(res.data.message)
-            navigate('/user');
+            .then(navigate('/user'));
         } else {
             toast.error(res.data.message)
         }

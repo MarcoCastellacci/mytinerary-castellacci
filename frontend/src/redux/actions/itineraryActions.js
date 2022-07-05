@@ -51,6 +51,15 @@ const itineraryActions = {
                 console.log(error)
             }
         }
-    }
+    }, 
+    addLikes: (id, likes) => {
+        return async (dispatch, getState) => {
+            try {
+                await axios.put(urlApi + `api/itinerarys/${id}/likes`, likes)
+            } catch (error) {
+                console.log(error)
+            }
+        }
+    },
 }
 export default itineraryActions

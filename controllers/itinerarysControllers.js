@@ -88,44 +88,6 @@ const itineraryController = {
             success: error ? false : true,
             error: error
         })},
-    addHashtag: async(req, res) =>{
-        const id = req.params.id
-        const hashtag = req.body
-        let itinerary
-        let error = null
-        try{
-            itinerary = await Itinerary.findOneAndUpdate({_id: id}, {$push: {hashtags: hashtag}})
-        } catch (err) { error = err }
-        res.json({
-            response: error ? 'ERROR' : itinerary,
-            success: error ? false : true,
-            error: error
-        })},
-    deleteHashtag: async(req, res) =>{
-        const id = req.params.id
-        const hashtag = req.body
-        let itinerary
-        let error = null
-        try{
-            itinerary = await Itinerary.findOneAndUpdate({_id: id}, {$pull: {hashtags: hashtag}})
-        } catch (err) { error = err }   
-        res.json({
-            response: error ? 'ERROR' : itinerary,
-            success: error ? false : true,
-            error: error
-        })},
-    getItinerarysByHashtag: async(req, res) =>{
-        const hashtag = req.params.hashtag
-        let itinerarys
-        let error = null
-        try{   
-            itinerarys = await Itinerary.find({hashtags: hashtag})  
-        } catch (err) { error = err }
-        res.json({
-            response: error ? 'ERROR' : itinerarys,
-            success: error ? false : true,
-            error: error
-        })},
     getItinerarysByCity: async(req, res) =>{
         const city = req.params.id
         let itinerarys
