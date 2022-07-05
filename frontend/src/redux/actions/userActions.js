@@ -7,11 +7,16 @@ const userActions = {
         return async (dispatch, getState) => {
             try {
                 const res = await axios.post(apiUrl + `api/user/signup`, userData)
-            dispatch({type: "MESSAGE",
+            console.log(res);
+            await dispatch({
+                type: "USER",
+                payload: res.data.response
+            })
+            await dispatch({type: "MESSAGE",
                     payload:{ view:true,
                             message: res.data.message,
                             success: res.data.success,
-                            }
+                            }   
                 })
             return res
             } catch (error) {
@@ -22,23 +27,25 @@ const userActions = {
     signIn: (logedUser) => {
         return async (dispatch, getState) => {
                 const user = await axios.post(apiUrl + `api/user/signin`, {logedUser})
+                console.log(user)
                 if (user.data.success) {
                     localStorage.setItem("token", user.data.response.token)
-                    dispatch({type: "USER", 
+                dispatch({type: "USER", 
                         payload: user.data.response.userData})
                 }
-                dispatch({type: "MESSAGE_SIGNIN",
+            await dispatch({type: "MESSAGE",
                         payload:{ view:true,
                                 message: user.data.message,
                                 success: user.data.success,
                             }
                         })
+            return user
             }
         },
-        SignOutUser: (email) => {
+        SignOutUser: () => {
             return async (dispatch, getState) => {
                 // eslint-disable-next-line
-                const user = await axios.post(apiUrl + `api/user/signout`, {email})
+                // const user = await axios.post(apiUrl + `api/user/signout`, {email})
                 localStorage.removeItem("token")
                 dispatch({type: "USER", 
                     payload: null})

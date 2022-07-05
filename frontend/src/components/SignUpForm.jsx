@@ -39,7 +39,7 @@ export default function SignUp() {
     const [selectCountry, setSelectCountry] = React.useState();
     const dispatch = useDispatch()
 
-        Swal.fire({
+    Swal.fire({
         title: 'Please Select your country',
         input: 'select',
         inputOptions: {
@@ -85,7 +85,33 @@ export default function SignUp() {
         }
     })
 
-    const handleSubmit = async (event) => {
+    function alerts(res) {
+        const errormsg = res.data.message
+            console.log(errormsg)
+        if (res.data.from === "validator") {
+            errormsg.forEach(e => {
+                toast.error(e.message)
+            })
+        }
+        if (res.data.from === "form-signup") {
+            if (res.data.success) {
+                toast.success(res.data.message)
+                navigate('/signin')
+            } else {
+                toast.error(res.data.message)
+            }
+        }
+        if (res.data.from === "signup") {
+            if (res.data.success) {
+                toast.success(res.data.message)
+                navigate('/signin')
+            } else {
+                toast.error(res.data.message)
+            }
+        }
+    }
+
+async function handleSubmit(event){
         event.preventDefault();
         const userData = {
             name: event.target[0].value,
@@ -96,25 +122,10 @@ export default function SignUp() {
             country: selectCountry,
             from: 'form-signup'
         }
-
-const res = await dispatch(userActions.signUp(userData))
-console.log(res)
-const errormsg = res.data.message
-    console.log(errormsg)
-    if (res.data.from === "validator") {
-        errormsg.forEach(e => {
-            toast.error(e.message)
-        })
-    }
-    if (res.data.from === "form-signup") {
-        if (res.data.success) {
-            toast.success(res.data.message)
-            navigate('/signin')
-        } else {
-            toast.error(res.data.message)
-        }
-    }
-};
+    const res = await dispatch(userActions.signUp(userData))
+        console.log(res)
+        alerts(res)
+    };
 
 
     return (
@@ -221,10 +232,10 @@ const errormsg = res.data.message
                             <GoogleSignUp country={selectCountry} />
                             <Copyright sx={{ mt: 5 }} />
                             <Grid item sx={{ marginY: '1rem' }}>
-                                    <RouterLink to="/signin" style={{ textDecoration: 'none', color: 'blue' }}>
-                                        {"Already have an account? Please Sign In"}
-                                    </RouterLink>
-                                </Grid>
+                                <RouterLink to="/signin" style={{ textDecoration: 'none', color: 'blue' }}>
+                                    {"Already have an account? Please Sign In"}
+                                </RouterLink>
+                            </Grid>
                         </Box>
                     </Box>
                 </Grid>

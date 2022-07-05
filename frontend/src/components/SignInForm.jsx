@@ -10,9 +10,9 @@ import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-import { useDispatch, useSelector} from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import userActions from '../redux/actions/userActions';
-import { Link as RouterLink, useNavigate} from "react-router-dom";
+import { Link as RouterLink, useNavigate } from "react-router-dom";
 import GoogleSignIn from './GoogleSignIn';
 import toast from 'react-hot-toast';
 
@@ -34,25 +34,36 @@ export default function LogIn() {
     const dispatch = useDispatch();
     const navigate = useNavigate();
 
-const res = useSelector(store => store.userReducer.user);
-    const handleSubmit = async (event) => {
+    function alerts(res) {
+        if (res.data.from === "signup") {
+            if (res.data.success) {
+                toast.success(res.data.message)
+                navigate('/signin')
+            } else {
+                toast.error(res.data.message)
+            }
+        }
+        if (res.data.from === "form-signup") {
+            if (res.data.success) {
+                toast.success(res.data.message)
+                navigate('/signin')
+            } else {
+                toast.error(res.data.message)
+            }
+        }
+    }
+
+    async function handleSubmit(event) {
         event.preventDefault();
         const logedUser = {
             email: event.target[0].value,
             password: event.target[2].value,
             from: 'form-signup',
         }
-await dispatch(userActions.signIn(logedUser))
-        
-    if (res.data.from === "signup") {
-        if (res.data.success) {
-            toast.success(res.data.message)
-            .then(navigate('/user'));
-        } else {
-            toast.error(res.data.message)
-        }
+        const res = await dispatch(userActions.signIn(logedUser))
+        console.log(res)
+        alerts(res)
     }
-}
     return (
         <ThemeProvider theme={theme}>
             <Grid container component="main" >
@@ -120,7 +131,7 @@ await dispatch(userActions.signIn(logedUser))
                                 Sign In
                             </Button>
                             <Grid container>
-                                <Grid item sx={{ marginY: '1rem', marginX:'2rem' }}>
+                                <Grid item sx={{ marginY: '1rem', marginX: '2rem' }}>
                                     <RouterLink to="/signup" style={{ textDecoration: 'none', color: 'blue' }}>
                                         {"Don't have an account? Sign Up"}
                                     </RouterLink>

@@ -3,16 +3,25 @@ import jwt_decode from 'jwt-decode';
 import {useDispatch} from 'react-redux';
 import userActions from '../redux/actions/userActions';
 import { useNavigate } from 'react-router-dom';
-import { toast } from 'react-hot-toast';
+import toast  from 'react-hot-toast';
 
 
 function GoogleSignIn() {
     const dispatch = useDispatch();
     const navigate = useNavigate();
 
-    async function handleCallbackResponse(response) {
+function alerts(res) {
+        if (res.data?.from === "signup") {
+            if (res.data.success) {
+                toast.success(res.data.message)
+                    navigate('/signin')
+            } else {
+                toast.error(res.data.message)
+            }
+        }
+}
+async function handleCallbackResponse(response) {
         const userObject = jwt_decode(response.credential)
-        console.log(userObject);
         const res = await dispatch(userActions.signIn({
                 email: userObject.email,
                 password: userObject.sub,
@@ -21,14 +30,7 @@ function GoogleSignIn() {
                 }
             ))   
         console.log(res)
-    if (res.data.from === "signup") {
-        if (res.data.success) {
-            toast.success(res.data.message)
-            navigate('/user');
-        } else {
-            toast.error(res.data.message)
-        }
-    }
+        alerts(res)
 }
 
     useEffect(() => {

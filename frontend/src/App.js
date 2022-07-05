@@ -67,7 +67,7 @@ dispatch(citiesActions.getCities())
       </Routes>
       <Toaster
       position='bottom-center'
-      autoClose={3000}
+      autoClose={6000}
       hideProgressBar={true}
       newestOnTop={true}
       transition={'scale'}

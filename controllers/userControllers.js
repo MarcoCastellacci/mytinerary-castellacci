@@ -46,14 +46,14 @@ const userControllers = {
                     res.json({
                         success: true,
                         from: 'signup',
-                        message: 'User coorectly created with' + "" +  from})
+                        message: 'User coorectly created with ' + " " +  from})
                 } else {
                     await newUser.save()
                     await sendVerification(email, uniquestring)
                     res.json({
                         success: true,
                         from: 'form-signup',
-                        message: 'User coorectly created with ' + "" + from + "" + ' Check your email to verify your account'})
+                        message: 'User coorectly created with ' + " " + from + " " + ' Check your email to verify your account'})
                 }
             }
         }   catch (error) {
@@ -88,7 +88,7 @@ const userControllers = {
                             success: true,
                             from: from,
                             response: {token, userData},
-                            message: 'welcome Back ' + "" + userData.name,
+                            message: 'welcome Back ' + " " + userData.name,
                             })
                     } else {
                         res.json({
@@ -113,7 +113,7 @@ const userControllers = {
                             success: true,
                             from: from,
                             response: {token, userData},
-                            message: 'welcome Back' + "" + userData.name,
+                            message: 'welcome Back ' + " " + userData.name,
                             })
                     } else {
                         res.json({
