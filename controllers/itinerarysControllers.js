@@ -86,25 +86,41 @@ const itineraryController = {
         })
     },
     addLike: async (req, res) => {
-        const id = req.body.id
+        const id = req.params.id
+        const user = req.user._id
+
+        await Itinerary.findOne({ _id: id })
+            .then((itinerary) => {
+                if (!itinerary.likes.includes(user._id)) {
+                    Itinerary.findOneAndUpdate({ _id: id }, { $push: { likes: user } }, { new: true })
+                        .then((response) => res.json({
+                        response: response.likes, 
+                        success: true
+                    })).catch((err) => console.log(err))
+                } else { 
+                    Itinerary.findOneAndUpdate({ _id: id }, { $pull: { likes: user } }, { new: true })
+                        .then((response) => res.json({
+                        response: response.likes, 
+                        success: true
+                    })).catch((err) => console.log(err))
+                }
+            
+            }).catch((error) => res.json({
+            console: console.log(error),
+            response: error ,
+            success: false   
+        }))
+    },
+    getLikesByUser: async (req, res) => {
         const user = await User.findOne({ _id: req.user._id })
-        let itinerary
+        let likes = []
         let error = null
         try {
-            if (user) {
-                if (!itinerary.likes.includes(user._id)) {
-                    itinerary = await Itinerary.findOneAndUpdate({ _id: id }, { $inc: { likes: 1, 'likes.$.count': 1 }, $push: { likes: user._id } }, { new: true })
-                } else if (itinerary.likes.includes(user._id)) { itinerary = await Itinerary.findOneAndUpdate({ _id: id }, { $pull: { likes: -1, 'likes.$.count': -1 } }, { new: true }) }
-            }
-            else if (!user) {
-                res.json({
-                    success: false,
-                    message: 'User not found please Sing Up or Login'
-                })
-            }
-        } catch (err) { error = err }
+            likes = await Itinerary.find()
+        }
+        catch (err) { error = err }
         res.json({
-            response: error ? 'ERROR' : itinerary,
+            response: error ? 'ERROR' : likes,
             success: error ? false : true,
             error: error
         })
@@ -119,20 +135,6 @@ const itineraryController = {
         } catch (err) { error = err }
         res.json({
             response: error ? 'ERROR' : itinerarys,
-            success: error ? false : true,
-            error: error
-        })
-    },
-    coments: async (req, res) => {
-        const id = req.params.id
-        const coment = req.body
-        let activitydb
-        let error = null
-        try {
-            activitydb = await Activity.findOneAndUpdate({ _id: id }, coment, { new: true })
-        } catch (err) { error = err }
-        res.json({
-            response: error ? 'ERROR' : activitydb,
             success: error ? false : true,
             error: error
         })

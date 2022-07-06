@@ -6,10 +6,13 @@ const citiesControllers = require('../controllers/citiesControllers');
 const itineraryControllers = require('../controllers/itinerarysControllers');
 const userControllers = require('../controllers/userControllers');
 const activitiesControllers = require('../controllers/activitiesControllers');
+const commentsControllers = require('../controllers/commentsControllers');
+
 const {getCities, getOneCity, addCity, modifyCity, addMultipleCity, removeCity} = citiesControllers;
 const {getItinerarys, getOneItinerary, addItinerary, modifyItinerary, deleteItinerary, addLike,getItinerarysByCity, coments} = itineraryControllers;
 const {signUpUser, signInUser, getUsers, verifyMail, verifyToken, signOut} = userControllers;
 const {getActivities, getOneActivity, addActivity,updateActivity,deleteActivity, getActivitiesByItinerary } = activitiesControllers;
+const {getComments, addComment, deleteComment,modifyComment} = commentsControllers;
 
 // Routes for cities
 Router.route('/cities')
@@ -34,11 +37,16 @@ Router.route('/itinerarys/:id')
 .put(modifyItinerary)
 .delete(deleteItinerary)
 
-Router.route('/itinerarys/like/:id')
-.post(addLike)
+Router.route('/itinerarys/likes/:id')
+.put(passport.authenticate('jwt', {session:false}),addLike)
 
 Router.route('/itinerary/coments')
-.post(coments)
+.post(passport.authenticate('jwt', {session:false}),addComment)
+.put(passport.authenticate('jwt', {session:false}),modifyComment)
+.get(passport.authenticate('jwt', {session:false}),getComments)
+
+Router.route('/itinerary/coments/:id')
+.delete(passport.authenticate('jwt', {session:false}),deleteComment)
 
 Router.route('/itinerarys/city/:id')
 .get(getItinerarysByCity)

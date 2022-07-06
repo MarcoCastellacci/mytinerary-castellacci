@@ -18,7 +18,6 @@ const itineraryActions = {
         return async (dispatch, getState) => {
             try {
                 const res = await axios.get(urlApi + `api/itinerarys/city/${id}`)
-                console.log(res)
                 dispatch({type: "GET_ITINERARYS_BY_CITY", payload: res.data.response})
             } catch (error) {
                 console.log(error)
@@ -46,17 +45,20 @@ const itineraryActions = {
     deleteItinerary: (id) => {
         return async (dispatch, getState) => {
             try {
-                await axios.delete(urlApi + `api/itinerarys/${id}`)
+            await axios.delete(urlApi + `api/itinerarys/${id}, `)
             } catch (error) {
                 console.log(error)
             }
         }
     }, 
-    addLikes: (id, likes) => {
+    addLikes: (id) => {
         return async (dispatch, getState) => {
             try {
-                await axios.put(urlApi + `api/itinerarys/likes/`, likes)
-            dispatch({type: "ADD_LIKES", payload: id})
+            const res = await axios.put(urlApi + `api/itinerarys/likes/${id}`, {}, { headers:{Authorization: `Bearer ${localStorage.getItem('token')}`}}
+            
+            )
+            console.log(res);
+            return res
             } catch (error) {
                 console.log(error)
             }
