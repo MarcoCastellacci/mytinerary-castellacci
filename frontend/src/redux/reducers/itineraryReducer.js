@@ -1,6 +1,7 @@
 const initialState = {
     itinerary: [],
     itineraryByCity: [],
+    likes: [],
 }
 
 const itineraryReducer = (state = initialState, action) => {
@@ -14,6 +15,11 @@ const itineraryReducer = (state = initialState, action) => {
             return {
                 ...state,
                 itineraryByCity: action.payload
+            }
+        case 'ADD_LIKES':
+            return {
+                ...state,
+                likes: [...state.likes, action.payload]
             }
         default:            
             return state

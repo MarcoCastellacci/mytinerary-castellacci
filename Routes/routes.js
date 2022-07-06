@@ -7,9 +7,9 @@ const itineraryControllers = require('../controllers/itinerarysControllers');
 const userControllers = require('../controllers/userControllers');
 const activitiesControllers = require('../controllers/activitiesControllers');
 const {getCities, getOneCity, addCity, modifyCity, addMultipleCity, removeCity} = citiesControllers;
-const {getItinerarys, getOneItinerary, addItinerary, modifyItinerary, deleteItinerary, addLike,getItinerarysByCity} = itineraryControllers;
+const {getItinerarys, getOneItinerary, addItinerary, modifyItinerary, deleteItinerary, addLike,getItinerarysByCity, coments} = itineraryControllers;
 const {signUpUser, signInUser, getUsers, verifyMail, verifyToken, signOut} = userControllers;
-const {getActivities, getOneActivity, comentActivity} = activitiesControllers;
+const {getActivities, getOneActivity, addActivity,updateActivity,deleteActivity, getActivitiesByItinerary } = activitiesControllers;
 
 // Routes for cities
 Router.route('/cities')
@@ -34,9 +34,11 @@ Router.route('/itinerarys/:id')
 .put(modifyItinerary)
 .delete(deleteItinerary)
 
-Router.route('/itinerarys/:id/like')
+Router.route('/itinerarys/like/:id')
 .post(addLike)
 
+Router.route('/itinerary/coments')
+.post(coments)
 
 Router.route('/itinerarys/city/:id')
 .get(getItinerarysByCity)
@@ -64,10 +66,14 @@ Router.route('/user/signintoken')
 
 Router.route('/activities')
 .get(getActivities)
-
+.post(addActivity)
 
 Router.route('/activities/:id')
 .get(getOneActivity)
-.put(comentActivity)
+.put(updateActivity)
+.delete(deleteActivity)
+
+Router.route('/activities/byitinerary/')
+.get(getActivitiesByItinerary)
 
 module.exports = Router;

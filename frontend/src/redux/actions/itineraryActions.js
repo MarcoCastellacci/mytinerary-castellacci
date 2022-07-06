@@ -55,7 +55,8 @@ const itineraryActions = {
     addLikes: (id, likes) => {
         return async (dispatch, getState) => {
             try {
-                await axios.put(urlApi + `api/itinerarys/${id}/likes`, likes)
+                await axios.put(urlApi + `api/itinerarys/likes/`, likes)
+            dispatch({type: "ADD_LIKES", payload: id})
             } catch (error) {
                 console.log(error)
             }

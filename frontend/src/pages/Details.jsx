@@ -26,9 +26,8 @@ useEffect(() => {
     // eslint-disable-next-line
     },[]) 
 const cities = useSelector(store => store.citiesReducer.city);
-console.log(cities)
 const itinerary = useSelector(store => store.itineraryReducer.itineraryByCity);
-console.log(itinerary)
+
 
     return (
     <>
