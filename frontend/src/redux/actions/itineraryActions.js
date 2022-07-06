@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-let urlApi = "http://localhost:4000/"
+let urlApi = "https://mytinerary-castellacci.herokuapp.com/"
 
 const itineraryActions = {
     getItinerary: (id) => { 

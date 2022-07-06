@@ -1,6 +1,6 @@
 import axios from "axios";  
 
-let apiUrl = "http://localhost:4000/"
+let apiUrl = "https://mytinerary-castellacci.herokuapp.com/"
 
 const citiesActions = {
     createCity: (name, country, info, image) => {
