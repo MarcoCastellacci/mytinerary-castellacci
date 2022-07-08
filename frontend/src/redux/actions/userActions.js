@@ -1,13 +1,12 @@
 import axios from "axios";
 
-let apiUrl = "https://mytinerary-castellacci.herokuapp.com/";
-
+// let apiUrl = "https://mytinerary-castellacci.herokuapp.com/";
+let apiUrl = "http://localhost:4000/"
 const userActions = {
     signUp: (userData) => {
         return async (dispatch, getState) => {
             try {
                 const res = await axios.post(apiUrl + `api/user/signup`, userData)
-            console.log(res);
             await dispatch({
                 type: "USER",
                 payload: res.data.response
@@ -27,7 +26,6 @@ const userActions = {
     signIn: (logedUser) => {
         return async (dispatch, getState) => {
                 const user = await axios.post(apiUrl + `api/user/signin`, {logedUser})
-                console.log(user)
                 if (user.data.success) {
                     localStorage.setItem("token", user.data.response.token)
                 dispatch({type: "USER", 

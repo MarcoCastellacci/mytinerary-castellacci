@@ -13,7 +13,6 @@ function GoogleSignUp(props) {
 
 function alerts(res) {
     const errormsg = res.data.message
-        console.log(errormsg);
     if (res.data.from === "validator") {
             errormsg.forEach(e => {
                 toast.error(e.message)
@@ -40,7 +39,6 @@ async function handleCallbackResponse(response) {
                 from: 'google'
                 }
             )) 
-    console.log(res)
     alerts(res)
 }
 

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { styled } from '@mui/material/styles';
 import Card from '@mui/material/Card';
 import CardHeader from '@mui/material/CardHeader';
@@ -15,7 +15,9 @@ import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import itineraryActions from '../redux/actions/itineraryActions';
 import Activities from '../components/Activities';
-
+import toast from 'react-hot-toast';
+import commentsActions from '../redux/actions/commentsActions';
+import '../styles/commentStyle.css'
 
 
 const ExpandMore = styled((props) => {
@@ -32,10 +34,41 @@ const ExpandMore = styled((props) => {
 export default function Itinerarys(props) {
     const [expanded, setExpanded] = useState(false);
     const [activities, setActivities] = useState(false);
+    const [comments, setComments] = useState("");
+    const [expComments, setExpComments] = useState(false);
     const user = useSelector(store => store.userReducer.user);
-
-    const [likes, setLikes] = useState();
+    const [reload, setReload] = useState(false);
     const dispatch = useDispatch();
+    const [modify, setModify] = useState(false);
+
+
+    async function addComment(event) {
+        const comment = {
+            id: props.itinerarys._id,
+            comment: comments,
+        }
+        const res = await dispatch(commentsActions.addComment(comment));
+        setReload(!reload);
+        console.log(res)
+        alerts(res)
+
+    }
+    async function updateComment(event) {
+        const commentData = {
+            commentId: event.target.id,
+            comment: modify
+        }
+        const res = await dispatch(commentsActions.modifyComment(commentData))
+        setReload(!reload)
+        alerts(res)
+    }
+    async function deleteComment(event) {
+        const res = await dispatch(commentsActions.deleteComment(event.target.id))
+        setReload(!reload)
+        alerts(res)
+    }
+
+    //console.log(props.itinerarys.comments)
 
     const handleExpandClick = () => {
         setExpanded(!expanded);
@@ -43,6 +76,14 @@ export default function Itinerarys(props) {
     const handleExpandClickActivities = () => {
         setActivities(!activities);
     };
+    const handleExpandComments = () => {
+        setExpComments(!expComments);
+        setReload(!reload);
+    }
+    const expand = () => {
+        handleExpandClickActivities();
+        handleExpandComments()
+    }
     let price = props.itinerarys.price;
     if (price < 30) {
         price = '💵';
@@ -56,12 +97,26 @@ export default function Itinerarys(props) {
         price = '💵💵💵💵💵';
     };
 
+    useEffect(() => {
+        dispatch(itineraryActions.getItineraryByCity(props.itinerarys.city));
+        // eslint-disable-next-line
+    }, [reload]);
+
+    function alerts(res) {
+        if (res === undefined) {
+            toast.error("You must be logged in to comment or like an itinerary");
+        }
+        else if (res.data.success === true) {
+            toast.success(res.data.message);
+        }
+    }
 
     async function likesDisLike() {
         const res = await dispatch(itineraryActions.addLikes(props.itinerarys._id));
-        console.log(res);
-        setLikes(res);
+        alerts(res);
+        setReload(res);
     };
+
     return (
         <Card sx={{ width: '90vw', bgcolor: 'rgba(0, 0, 0, 0.651)', color: 'white', margin: '2rem' }} >
             <CardHeader
@@ -87,18 +142,18 @@ export default function Itinerarys(props) {
                 {
                     user ?
                         (<IconButton sx={{ margin: '.5rem', marginY: '0' }} onClick={likesDisLike}>
-                            {likes?.data.response.includes(user.id) ? 
-                            <FavoriteIcon sx={{ color: 'red' }} className="likes-counter" />
-                            : <FavoriteIcon sx={{ color: 'white' }} className="likes-counter" />}
-                        </IconButton>)  
+                            {props?.itinerarys.likes.includes(user.id) ?
+                                <FavoriteIcon sx={{ color: 'red' }} className="likes-counter" />
+                                : <FavoriteIcon sx={{ color: 'white' }} className="likes-counter" />}
+                        </IconButton>)
                         :
                         (<IconButton sx={{ margin: '.5rem', marginY: '0' }} onClick={likesDisLike}>
-                            <FavoriteIcon sx={{ color: 'red' }} className="likes-counter" />
+                            <FavoriteIcon sx={{ color: 'white' }} className="likes-counter" />
                         </IconButton>)
                 }
-                    <Typography variant="body2" color="white" sx={{ margin: '.5rem' }}>
-                        {likes?.data.response.length}
-                    </Typography>
+                <Typography variant="body2" color="white" sx={{ margin: '.5rem' }}>
+                    {props?.itinerarys.likes.length}
+                </Typography>
 
 
 
@@ -135,7 +190,7 @@ export default function Itinerarys(props) {
                             </Typography>
                             <ExpandMore
                                 expand={activities}
-                                onClick={handleExpandClickActivities}
+                                onClick={expand}
                                 aria-expanded={activities}
                                 aria-label="show more"
                                 sx={{ color: 'white', textAlign: 'center' }}
@@ -146,7 +201,6 @@ export default function Itinerarys(props) {
                     </CardContent>
                 </CardContent>
             </Collapse>
-
             <Collapse in={activities} timeout="auto" unmountOnExit>
                 <CardContent>
                     <Typography paragraph>
@@ -155,6 +209,75 @@ export default function Itinerarys(props) {
                         )}
                     </Typography>
                 </CardContent>
+                <CardContent>
+                    <CardActions>
+                        <Typography variant="h6" sx={{ margin: '1rem', marginBottom: '0', textAlign: 'center' }}>
+                            Comments {props?.itinerarys.comments.length}
+                        </Typography>
+                        <ExpandMore
+                            expand={expComments}
+                            onClick={handleExpandComments}
+                            aria-expanded={expComments}
+                            aria-label="show more"
+                            sx={{ color: 'white', textAlign: 'center' }}
+                        >
+                            <ExpandMoreIcon />
+                        </ExpandMore>
+                    </CardActions>
+                </CardContent>
+            </Collapse>
+            <Collapse in={expComments} timeout="auto" unmountOnExit>
+
+                {user && props.itinerarys.comments.map((comment, index) =>
+                    <>
+                        <div key={index} className='comment-header'>
+                            {user.id !== comment.user._id ?
+                                <div className="comment-container">
+
+                                    <div>
+                                        <div className="comment-user">
+                                            <Avatar alt={comment.user.name} src={comment.user.image} />
+                                            <h3>{comment.user.name} {comment.user.lastName}</h3>
+                                        </div>
+                                        <div className='comment-header-right'>
+                                            <h2>{comment.comment}</h2>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                :
+                                <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignContent: 'center' }}>
+                                    <div type="text" className="text-comment" onInput={(e) => setModify(e.currentTarget.textContent)} suppressContentEditableWarning={true} contentEditable>{comment.comment}</div>
+                                    <div className='comment-button'>
+                                        <button id={comment._id} onClick={updateComment} className="btn-comment">
+                                            Modify
+                                        </button>
+                                        <button id={comment._id} onClick={deleteComment} className="btn-comment">
+                                            Delete
+                                        </button>
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                    </>
+                )}
+
+                {user ?
+                <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignContent: 'center' }}>
+                    <div id="newComment" placeholder="Leave your Comment Here!" type="text" className="text-comment" onInput={(e) => setComments(e.currentTarget.textContent)}
+                        suppressContentEditableWarning={true} contentEditable></div>
+                    <div className='comment-button'>
+                        <button onClick={addComment} className="btn-comment">
+                            Send
+                        </button>
+                    </div>
+                </div>
+                :
+                <div style={{ textAlign:'center', margin: '1rem'}}>
+                    <h3>Please login to leave a comment</h3>
+                </div>
+                }
+
             </Collapse>
         </Card>
     );

@@ -1,0 +1,66 @@
+.btn-comment {
+    width: 10vw !important;
+    background-color: rgb(57, 222, 161) !important;
+    color: rgb(0, 0, 0);
+    border-radius: 0.5rem;
+    margin: 2rem 1rem;
+}
+
+.text-comment {
+    width: 70vw !important;
+    margin-left: 2rem;
+    margin-bottom: 2rem;
+    height: 5rem;
+    resize: none !important;
+}
+
+.comment-header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+}
+
+.comment-user{
+    display: flex;
+    justify-items: flex-start !important;
+    align-self: flex-start !important;
+    align-items: center !important;
+    margin: 2rem 1rem;
+}
+
+.comment-user h4{
+    margin: 0 2rem;
+    
+}
+
+.comment-header-right{
+    width: 100% !important;
+    height: auto !important;
+    display: flex;
+    justify-items: center !important;
+    align-self: center !important;
+    align-items: center !important;
+    text-align: center;
+    margin-left: 50% !important;
+    margin-right: 50% !important;
+    margin-bottom: 2rem;
+}
+
+.btn-signIn{
+    width: 25vw !important;
+    text-decoration: none;
+    height: 5rem;
+    background-color: rgb(57, 222, 161) !important;
+    color: rgb(0, 0, 0);
+    border-radius: 0.5rem;
+    font-size: large;
+    margin: 2rem;
+}
+
+.btn-signIn:hover{
+    background-color: rgb(0, 0, 0) !important;
+    color: rgb(57, 222, 161) !important;
+    box-shadow: 0 0 0.5rem rgb(57, 222, 161) !important;
+}

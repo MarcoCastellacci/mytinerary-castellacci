@@ -87,7 +87,6 @@ export default function SignUp() {
 
     function alerts(res) {
         const errormsg = res.data.message
-            console.log(errormsg)
         if (res.data.from === "validator") {
             errormsg.forEach(e => {
                 toast.error(e.message)
@@ -123,7 +122,6 @@ async function handleSubmit(event){
             from: 'form-signup'
         }
     const res = await dispatch(userActions.signUp(userData))
-        console.log(res)
         alerts(res)
     };
 

@@ -29,7 +29,7 @@ async function handleCallbackResponse(response) {
                 from: 'google',
                 }
             ))   
-        console.log(res)
+        
         alerts(res)
 }
 

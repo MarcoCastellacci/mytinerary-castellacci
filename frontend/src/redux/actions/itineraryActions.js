@@ -1,6 +1,7 @@
 import axios from 'axios';
 
-let urlApi = "https://mytinerary-castellacci.herokuapp.com/"
+// let urlApi = "https://mytinerary-castellacci.herokuapp.com/"
+let urlApi = "http://localhost:4000/"
 
 const itineraryActions = {
     getItinerary: (id) => { 
@@ -8,7 +9,6 @@ const itineraryActions = {
             try {
                 const res = await axios.get(urlApi + `api/itinerarys/`)
                 dispatch({type: "GET_ITINERARYS", payload: res.data})
-                console.log(res)
             } catch (error) {
                 console.log(error)
             }
@@ -52,13 +52,13 @@ const itineraryActions = {
         }
     }, 
     addLikes: (id) => {
+        
         return async (dispatch, getState) => {
             try {
-            const res = await axios.put(urlApi + `api/itinerarys/likes/${id}`, {}, { headers:{Authorization: `Bearer ${localStorage.getItem('token')}`}}
-            
+            const res = await axios.put(urlApi + `api/itinerarys/likes/${id}`, {}, { headers:{Authorization: `Bearer ${localStorage.getItem('token')}`}}            
             )
-            console.log(res);
             return res
+            
             } catch (error) {
                 console.log(error)
             }

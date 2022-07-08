@@ -11,6 +11,7 @@ const itineraryController = {
             itinerarys = await Itinerary.find()
                 .populate('city')
                 .populate('activities')
+                .populate('comments.user')
         } catch (err) { error = err }
         res.json({
             response: error ? 'ERROR' : { itinerarys },
@@ -26,6 +27,7 @@ const itineraryController = {
             itinerary = await Itinerary.findOne({ _id: id })
                 .populate('city', { city: 1 })
                 .populate('activities')
+                .populate('comments.user')
         } catch (err) { error = err }
         res.json({
             response: error ? 'ERROR' : itinerary,
@@ -87,20 +89,21 @@ const itineraryController = {
     },
     addLike: async (req, res) => {
         const id = req.params.id
-        const user = req.user._id
-
+        const user = await User.findOne({ _id: req.user._id })
         await Itinerary.findOne({ _id: id })
             .then((itinerary) => {
                 if (!itinerary.likes.includes(user._id)) {
-                    Itinerary.findOneAndUpdate({ _id: id }, { $push: { likes: user } }, { new: true })
+                    Itinerary.findOneAndUpdate({ _id: id }, { $push: { likes: user._id } }, { new: true })
                         .then((response) => res.json({
                         response: response.likes, 
+                        message: 'Thanks for liking this itinerary ' + user.name,
                         success: true
                     })).catch((err) => console.log(err))
                 } else { 
-                    Itinerary.findOneAndUpdate({ _id: id }, { $pull: { likes: user } }, { new: true })
+                    Itinerary.findOneAndUpdate({ _id: id }, { $pull: { likes: user._id } }, { new: true })
                         .then((response) => res.json({
                         response: response.likes, 
+                        message: 'You unliked this itinerary ' + user.name,
                         success: true
                     })).catch((err) => console.log(err))
                 }
@@ -112,7 +115,7 @@ const itineraryController = {
         }))
     },
     getLikesByUser: async (req, res) => {
-        const user = await User.findOne({ _id: req.user._id })
+        const user = req.user.id
         let likes = []
         let error = null
         try {
@@ -132,6 +135,7 @@ const itineraryController = {
         try {
             itinerarys = await Itinerary.find({ city: city })
                 .populate('activities')
+                .populate('comments.user')
         } catch (err) { error = err }
         res.json({
             response: error ? 'ERROR' : itinerarys,
