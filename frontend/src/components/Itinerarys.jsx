@@ -204,7 +204,7 @@ export default function Itinerarys(props) {
             <Collapse in={activities} timeout="auto" unmountOnExit>
                 <CardContent>
                     <Typography paragraph>
-                        {props.itinerarys.activities.map((activity, index) =>
+                        {props?.itinerarys?.activities.map((activity, index) =>
                             <Activities activities={activity} key={index} />
                         )}
                     </Typography>
