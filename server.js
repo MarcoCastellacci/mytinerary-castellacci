@@ -8,7 +8,7 @@ const express = require('express');
 const Router = require('./Routes/routes');
 const app = express();
 
-const PORT = 4000;
+const PORT = process.env.PORT || 4000;
 
 // Middlewares
 app.use(cors());

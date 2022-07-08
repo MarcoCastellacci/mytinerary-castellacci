@@ -278,7 +278,7 @@ const sendVerification = async (email, string) => {
         <td style="overflow-wrap:break-word;word-break:break-word;padding:10px;font-family:'Open Sans',sans-serif;" align="left">
             
     <div>
-        <a href="http://localhost:4000/api/user/verify/${string}">Verify</a>
+        <a href="https://mytinerary-castellacci.herokuapp.com/api/user/verify/${string}">Verify</a>
     </div>
 
         </td>

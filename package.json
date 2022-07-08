@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js",
     "dev": "nodemon server.js",
-    "build": "webpack --env.API_URL=https://www.myapi.com --config webpack.config.build.js"
+    "build": "webpack --env.API_URL=https://mytinerary-castellacci.herokuapp.com/ --config webpack.config.build.js"
   },
   "repository": {
     "type": "git",
