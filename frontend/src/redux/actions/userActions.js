@@ -43,11 +43,11 @@ const userActions = {
         SignOutUser: () => {
             return async (dispatch, getState) => {
                 // eslint-disable-next-line
-                // const user = await axios.post(apiUrl + `api/user/signout`, {email})
+            //const user = await axios.post(apiUrl + `api/user/signout`, {email})
                 localStorage.removeItem("token")
                 dispatch({type: "USER", 
                     payload: null})
-                
+            
             }
         },
         verifyToken: (token) => {

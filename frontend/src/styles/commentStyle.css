@@ -4,6 +4,8 @@
     color: rgb(0, 0, 0);
     border-radius: 0.5rem;
     margin: 2rem 1rem;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
 }
 
 .text-comment {
@@ -12,6 +14,8 @@
     margin-bottom: 2rem;
     height: 5rem;
     resize: none !important;
+    border: solid 1px rgb(57, 222, 161) !important;
+    border-radius: 1.5rem;
 }
 
 .comment-header {

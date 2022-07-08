@@ -33,7 +33,7 @@ export default function UserProfile(props) {
     return (
         <>  
         {props.user ?
-        <Card sx={{ width: '70vw', bgcolor: 'rgba(0, 0, 0, 0.651)', marginY: '5rem'}}>
+        <Card sx={{ width: '70vw', bgcolor: 'rgba(0, 0, 0, 0.651)', marginY: '5rem', height: {xl: '30vw'},}}>
             <CardHeader sx={{ color: 'whiteSmoke'}}
                 avatar={
                     <Avatar sx={{ bgcolor: 'black', }} aria-label="recipe">

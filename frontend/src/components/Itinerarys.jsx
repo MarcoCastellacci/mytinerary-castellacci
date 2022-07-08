@@ -237,7 +237,7 @@ export default function Itinerarys(props) {
                                     <div>
                                         <div className="comment-user">
                                             <Avatar alt={comment.user.name} src={comment.user.image} />
-                                            <h3>{comment.user.name} {comment.user.lastName}</h3>
+                                            <h3 style={{margin: '1rem'}}>{comment.user.name} {comment.user.lastName}</h3>
                                         </div>
                                         <div className='comment-header-right'>
                                             <h2>{comment.comment}</h2>
@@ -247,7 +247,12 @@ export default function Itinerarys(props) {
                                 </div>
                                 :
                                 <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignContent: 'center' }}>
-                                    <div type="text" className="text-comment" onInput={(e) => setModify(e.currentTarget.textContent)} suppressContentEditableWarning={true} contentEditable>{comment.comment}</div>
+                                    
+                                    <Avatar alt={comment.user.name} src={comment.user.image} sx={{margin: '.5rem'}} />
+                                        {comment.user.name} {comment.user.lastName}
+                                    <div type="text" className="text-comment" style={{margin: '1rem', padding:'1rem'}} onInput={(e) => setModify(e.currentTarget.textContent)} suppressContentEditableWarning={true} contentEditable>
+                                    {comment.comment}    
+                                    </div>
                                     <div className='comment-button'>
                                         <button id={comment._id} onClick={updateComment} className="btn-comment">
                                             Modify
@@ -259,25 +264,38 @@ export default function Itinerarys(props) {
                                 </div>
                             }
                         </div>
-                    </>
+                        </>
                 )}
 
-                {user ?
-                <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignContent: 'center' }}>
-                    <div id="newComment" placeholder="Leave your Comment Here!" type="text" className="text-comment" onInput={(e) => setComments(e.currentTarget.textContent)}
-                        suppressContentEditableWarning={true} contentEditable></div>
-                    <div className='comment-button'>
-                        <button onClick={addComment} className="btn-comment">
-                            Send
-                        </button>
-                    </div>
-                </div>
-                :
-                <div style={{ textAlign:'center', margin: '1rem'}}>
-                    <h3>Please login to leave a comment</h3>
-                </div>
-                }
+                        {user ?
+                            <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignContent: 'center' }}>
+                                <div id="newComment" placeholder="Leave your Comment Here!" type="text" style={{margin: '1rem', padding:'1rem'}}className="text-comment" onInput={(e) => setComments(e.currentTarget.textContent)}
+                                    suppressContentEditableWarning={true} contentEditable></div>
+                                <div className='comment-button'>
+                                    <button onClick={addComment} className="btn-comment">
+                                        Send
+                                    </button>
+                                </div>
+                            </div>
+                            :
+                            <div className="comment-container">
+                                {props.itinerarys.comments.map((comment, index) =>
+                                <div key={index}>
+                                    <div className="comment-user">
+                                        <Avatar alt={comment.user.name} src={comment.user.image} />
+                                        <h3 style={{margin: '1rem'}}>{comment.user.name} {comment.user.lastName}</h3>
+                                    </div>
+                                    <div className='comment-header-right'>
+                                        <h2>{comment.comment}</h2>
+                                    </div>
+                                </div>)}
+                                <div style={{ textAlign: 'center', margin: '1rem' }}>
+                                    <h3>Please login to leave a comment</h3>
+                                </div>
+                            </div>
+                        }
 
+                    
             </Collapse>
         </Card>
     );
