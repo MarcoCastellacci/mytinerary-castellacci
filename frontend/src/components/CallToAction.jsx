@@ -17,6 +17,7 @@ function CallToAction() {
             height: '20vh',
             margin: '5rem auto',
             marginTop: '1rem',
+            // eslint-disable-next-line
             marginTop: { xl: '8rem'},
             }}>
             <img src={Title} alt="title" className="title-app"/>

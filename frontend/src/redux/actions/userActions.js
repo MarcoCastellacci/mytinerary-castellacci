@@ -1,7 +1,7 @@
 import axios from "axios";
 
- let apiUrl = "https://mytinerary-castellacci.herokuapp.com/";
-//let apiUrl = "http://localhost:4000/"
+//let apiUrl = "https://mytinerary-castellacci.herokuapp.com/";
+let apiUrl = "http://localhost:4000/"
 const userActions = {
     signUp: (userData) => {
         return async (dispatch, getState) => {
