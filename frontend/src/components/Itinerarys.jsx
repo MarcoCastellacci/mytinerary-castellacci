@@ -289,7 +289,7 @@ export default function Itinerarys(props) {
                                         <h2>{comment.comment}</h2>
                                     </div>
                                 </div>)}
-                                <div style={{ textAlign: 'center', margin: '1rem' }}>
+                                <div style={{ textAlign: 'center', margin: '1.5rem' }}>
                                     <h3>Please login to leave a comment</h3>
                                 </div>
                             </div>
